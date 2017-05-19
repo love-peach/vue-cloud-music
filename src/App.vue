@@ -3,11 +3,9 @@
     <router-view></router-view>
   </div>
 </template>
-
-<script>
-export default {
-  name: 'app'
-}
-</script>
-
-<style></style>
+<style>
+    #app {
+        height: 100%;
+        position: relative;
+    }
+</style>

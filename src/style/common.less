@@ -1,0 +1,45 @@
+/* 自定义一些 reset 样式*/
+body,
+blockquote,
+dd,
+dl,
+figure,
+form,
+p,
+pre,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {margin:0;}
+
+/* 合并表格的间隙，去掉单元格之间的间距，如有需要合并单元格为细线表格，可增加 border-collapse:collapse; */
+table {
+    border-spacing:0;
+    border-collapse:collapse;
+}
+
+/* 去除单元格以及caption表头的padding值 */
+td,
+th,
+caption {
+    padding:0;
+}
+
+/*===== 去除个别浏览器图片底部的几个像素，以及设置图片形式链接无边框 =====*/
+img {vertical-align:middle;}
+a img {border:0 none;}
+
+/* 全局样式 */
+
+/*
+因为有横多页面需要做全屏的样式，所以干脆将html,body高度设置为100%；
+滚动的话，就利用div自身的滚动。
+*/
+html,
+body {
+    height: 100%;
+    /* 下面这个 overflow 为了解决 margin 穿透的问题*/
+    overflow: hidden;
+}

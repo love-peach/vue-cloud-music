@@ -1,21 +1,44 @@
 <template>
-    <div>
-        <h1>Demo 集合</h1>
-        <router-link :to="{ path: '/demo/demo_todolist' }">demo_todolist</router-link>
-        <router-view></router-view>
+    <div class="demo-wrap">
+        <div class="side-menu-container">
+            <SideMenu />
+        </div>
+        <div class="content-container">
+            <mu-icon value="home" :size="32" @click="toggle"/>
+            <router-view></router-view>
+        </div>
     </div>
 </template>
-<style>
-
+<style scoped lang="less">
+    .demo-wrap {
+        height: 100%;
+    }
+    .side-menu-container {
+        width: 200px;
+        height: 100%;
+        float: left;
+        background-color: #666;
+    }
+    .content-container {
+        margin-left: 200px;
+        height: 100%;
+    }
 </style>
-<script>
+<script type="text/javascript">
+    import SideMenu from './side-menu/index.vue';
     export default{
         data(){
             return{
                 msg:'hello vue'
             }
         },
+        methods: {
+            toggle() {
+                this.$store.dispatch('toggleSideMenu');
+            },
+        },
         components:{
+            SideMenu,
         }
     }
 </script>

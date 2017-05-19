@@ -1,4 +1,4 @@
-<style lang="less">
+<style scoped lang="less">
     .footer-wrap {
         position: relative;
         color: #777;

@@ -10,7 +10,7 @@
 
 </template>
 
-<style lang="less">
+<style scoped lang="less">
 
     .todolist-wrap {
         position: relative;
@@ -21,7 +21,7 @@
         border-top: 1px solid #f5f5f5;
     }
     .title {
-        margin: 20px 0;
+        margin-bottom: 20px;
         font-size: 100px;
         font-weight: 100;
         text-align: center;

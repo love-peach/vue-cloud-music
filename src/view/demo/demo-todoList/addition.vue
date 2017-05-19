@@ -8,7 +8,7 @@
     </div>
 </template>
 
-<style lang="less">
+<style scoped lang="less">
     .new-todo {
         width: 100%;
         box-sizing: border-box;

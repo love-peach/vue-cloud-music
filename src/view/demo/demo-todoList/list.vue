@@ -1,4 +1,4 @@
-<style lang="less">
+<style scoped lang="less">
     .list-wrap {
         margin: 0;
         padding: 0;
