@@ -37,7 +37,7 @@
 <script>
     import NavBar from '@/components/nav-bar/NavBar.vue';
     import PlayBar from '@/components/play-bar/PlayBar.vue';
-    import SidePanel from '@/components/side-pannel/SidePannel.vue'
+    import SidePanel from '@/components/side-panel/SidePanel.vue'
     export default{
         data(){
             return{

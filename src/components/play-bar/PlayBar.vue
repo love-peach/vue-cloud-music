@@ -1,6 +1,6 @@
 <template>
     <div class="play-bar-wrap">
-        <img class="player" src="../../assets/logo.png">
+        <img class="player" src="../../assets/img/logo.png">
         <div class="player-info">
             <span class="sing-name">成都</span>
             <span class="player-name">赵雷</span>
