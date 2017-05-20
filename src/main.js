@@ -14,7 +14,7 @@ import 'muse-ui/dist/muse-ui.css'
 import MuseUI from 'muse-ui'
 
 // 加载 normalize common 样式
-// import '@/style/normalize.css'
+import '@/style/normalize.css'
 import '@/style/common.less'
 
 // 加载适配方案
