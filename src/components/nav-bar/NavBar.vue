@@ -1,11 +1,10 @@
 <template>
     <div class="navigation-wrap">
-        <mu-flat-button class="navigation-switch" width="80"><i class="iconfont icon-liebiao2"></i></mu-flat-button>
+        <mu-flat-button class="navigation-switch" @click="toggle(true)" width="80"><i class="iconfont icon-liebiao2"></i></mu-flat-button>
         <div class="navigation-content">
-            <mu-flat-button class="content-item" width="80" :to="{ path: '/mine-music' }"><i class="iconfont icon-music"></i></mu-flat-button>
+            <mu-flat-button class="content-item"  width="80" :to="{ path: '/mine-music' }"><i class="iconfont icon-music"></i></mu-flat-button>
             <mu-flat-button class="content-item" width="80" :to="{ path: '/found-music' }"><i class="iconfont icon-wangyiyunyinlezizhi-copy"></i></mu-flat-button>
             <mu-flat-button class="content-item" width="80" :to="{ path: '/friend' }"><i class="iconfont icon-pengyou"></i></mu-flat-button>
-
         </div>
         <mu-icon-button class="navigation-search">
             <i class="iconfont icon-search"></i>
@@ -64,6 +63,11 @@
             }
         },
         components:{
-        }
+        },
+        methods: {
+            toggle(flag) {
+                this.$store.dispatch('toggleSidePanel', flag);
+            },
+        },
     }
 </script>

@@ -7,6 +7,7 @@
         <div class="home-footer">
             <PlayBar />
         </div>
+        <SidePanel />
     </div>
 </template>
 <style scoped lang="less">
@@ -19,7 +20,7 @@
             .px2rem(bottom, 0);
             width: 100%;
             position: absolute;
-            z-index: 10;
+            /*z-index: 10;*/
             overflow-y: auto;
             .px2rem(padding-bottom, @playBarHeight);
             background-color: #f2f4f5;
@@ -27,7 +28,7 @@
         .home-footer {
             .px2rem(height, @playBarHeight);
             position: absolute;
-            z-index: 100;
+            /*z-index: 100;*/
             bottom: 0;
             width: 100%;
         }
@@ -36,6 +37,7 @@
 <script>
     import NavBar from '@/components/nav-bar/NavBar.vue';
     import PlayBar from '@/components/play-bar/PlayBar.vue';
+    import SidePanel from '@/components/side-pannel/SidePannel.vue'
     export default{
         data(){
             return{
@@ -45,6 +47,7 @@
         components:{
             NavBar,
             PlayBar,
+            SidePanel,
         }
     }
 </script>
