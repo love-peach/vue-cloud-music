@@ -1,11 +1,10 @@
 <template>
     <div class="demo-wrap">
-        <div class="side-menu-container">
-            <SideMenu />
-        </div>
-        <div class="content-container">
+        <SideMenu />
+        <div class="content-container" :style="{marginLeft: $store.state.demoStore.showSideMenu ? '200px' : '0'}">
             <mu-icon value="home" :size="32" @click="toggle"/>
             <router-view></router-view>
+            <router-view name="content"></router-view>
         </div>
     </div>
 </template>
@@ -13,15 +12,9 @@
     .demo-wrap {
         height: 100%;
     }
-    .side-menu-container {
-        width: 200px;
-        height: 100%;
-        float: left;
-        background-color: #666;
-    }
     .content-container {
-        margin-left: 200px;
         height: 100%;
+        transition: all .3s ease;
     }
 </style>
 <script type="text/javascript">

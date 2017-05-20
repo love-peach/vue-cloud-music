@@ -1,7 +1,7 @@
 <template>
     <div>
         <mu-drawer :open="$store.state.demoStore.showSideMenu" :docked="$store.state.demoStore.docked" :width="200">
-            <h1 class="title">Demo合集</h1>
+            <router-link class="title" :to="{ path: '/demo/' }">Demo合集</router-link>
             <mu-list>
                 <mu-list-item title="Menu Item 2" :to="{ path: '/demo/demo_todolist' }" />
                 <mu-list-item title="Menu Item 2"/>

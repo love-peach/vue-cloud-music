@@ -21,7 +21,6 @@ const mutations = {
     [types.DEMO_TOGGLE_SIDE_MENU] (state, flag) {
         state.showSideMenu = !state.showSideMenu;
         state.docked = !flag;
-        console.log(123);
     },
 };
 
