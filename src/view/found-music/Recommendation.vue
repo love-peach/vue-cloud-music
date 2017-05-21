@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div>个性推荐</div>
+        <div style="height: 1000px">个性推荐</div>
     </div>
 </template>
 <style>

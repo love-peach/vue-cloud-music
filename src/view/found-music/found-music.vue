@@ -6,7 +6,7 @@
         <keep-alive> <!--保存在内存中，防止重复渲染-->
             <transition name="fade" mode="out-in">
                 <!--component 组件，由vue提供，具体文档可看这里 https://cn.vuejs.org/v2/guide/components.html#动态组件-->
-                <component v-bind:is="activeTab"></component>
+                <component class="content-wrap" v-bind:is="activeTab"></component>
             </transition>
         </keep-alive>
     </div>
@@ -21,7 +21,7 @@
     }
     .found-music-wrap {
         .tab-bar {
-            .px2rem(height, 70);
+            .px2rem(height, @foundMusicTopBarHeight);
             background-color: #fff;
             .mu-tab-link {
                 color: #333;
@@ -35,6 +35,13 @@
             .mu-tab-link-highlight {
                 background-color: @themeColors;
             }
+        }
+        .content-wrap {
+            .px2rem(top, @foundMusicTopBarHeight);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            overflow-y: auto;
         }
     }
 </style>
