@@ -1,7 +1,8 @@
 import orgs from './mockdata/organizations';
+import mockUrls from './mock-urls';
 
 export default function (mock) {
-    mock.onGet('/mock/ajax/get').reply(() => {
+    mock.onGet(mockUrls.ajaxGet).reply(() => {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve([200, orgs]);
@@ -22,7 +23,7 @@ export default function (mock) {
             }, 2000);
         });
     });
-    mock.onPost('/mock/ajax/post').reply(() => {
+    mock.onPost(mockUrls.ajaxPost).reply(() => {
         return new Promise(resolve => {
             setTimeout(() => {
                 resolve([200, orgs]);

@@ -25,11 +25,39 @@ Vue.config.productionTip = false
 
 Vue.use(MuseUI)
 
+require('./mock/index')
+
+import * as promiseAjax from './common/promise-ajax'
+import mockUrls from './mock/mock-urls';
+promiseAjax.init({
+    setOptions: (instance) => {
+        instance.defaults.baseURL = 'http://192.169.0.123/';
+    },
+    onShowErrorTip: (err, errorTip) => {
+        if (errorTip !== false) {
+            // handleErrorMessage(err);
+            alert(errorTip);
+        }
+    },
+    onShowSuccessTip: (response, successTip) => {
+        if (successTip !== false) {
+            // message.success(successTip, 3);
+            alert(successTip)
+        }
+    },
+    isMock: (url /* url, data, method, options */) => {
+        return Object.keys(mockUrls).find(key => mockUrls[key] === url);
+        // if (mockUrls.indexOf(url) > -1) return true;
+        return false;
+        // return url.startsWith('/mock');
+    },
+});
+
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  store,
-  template: '<App/>',
-  components: {App}
+    el: '#app',
+    router,
+    store,
+    template: '<App/>',
+    components: {App}
 })
