@@ -36,13 +36,13 @@ promiseAjax.init({
     onShowErrorTip: (err, errorTip) => {
         if (errorTip !== false) {
             // handleErrorMessage(err);
-            alert(errorTip);
+            console.log(errorTip);
         }
     },
     onShowSuccessTip: (response, successTip) => {
         if (successTip !== false) {
             // message.success(successTip, 3);
-            alert(successTip)
+            console.log(successTip)
         }
     },
     isMock: (url /* url, data, method, options */) => {
