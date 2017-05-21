@@ -21,21 +21,21 @@
         position: relative;
         height: 100%;
         .home-content {
+            position: absolute;
             top: @navBarHeight;
             bottom: 0;
             width: 100%;
-            position: absolute;
+            padding-bottom: @playBarHeight;
             /*z-index: 10;*/
             overflow-y: auto;
-            padding-bottom: @playBarHeight;
             background-color: #f2f4f5;
         }
         .home-footer {
-            height: @playBarHeight;
             position: absolute;
-            /*z-index: 100;*/
             bottom: 0;
+            height: @playBarHeight;
             width: 100%;
+            /*z-index: 100;*/
         }
     }
 

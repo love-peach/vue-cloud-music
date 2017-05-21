@@ -10,14 +10,14 @@
 <style scoped lang="less">
     @import "../../style/variable";
     .play-bar-wrap {
-        padding: .1rem;
+        padding: @baseOffset;
         display: flex;
         height: 100%;
         background-color: rgba(255,2555,255,.9);
         .player {
-            width: .66rem;
-            height: .66rem;
-            margin-right: .25rem;
+            width: .76rem;
+            height: .76rem;
+            margin-right: .15rem;
         }
         .player-info {
             display: flex;
@@ -30,7 +30,7 @@
                 color: #333;
             }
             .player-name {
-                font-size: .12rem;
+                font-size: .24rem;
                 line-height: 1;
                 color: #666;
             }

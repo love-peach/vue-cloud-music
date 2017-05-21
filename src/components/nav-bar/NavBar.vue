@@ -15,35 +15,29 @@
     @import "../../style/variable";
 
     .navigation-wrap {
-        height: .9rem;
+        height: @navBarHeight;
         display: flex;
         align-items: center;
         background-color: @themeColors;
+        .iconfont {
+            font-size: .54rem;
+            color: #fff;
+        }
         .navigation-switch {
-            width: .8rem;
+            width: @navBarHeight;
             height: 100%;
             min-width: inherit;
-            color: #fff;
-            i {
-                font-size: .42rem;
-            }
         }
         .navigation-content {
             display: flex;
             flex: 1;
             height: 100%;
             justify-content: center;
-
             .content-item {
-                width: 1rem;
+                width: @navBarHeight;
                 min-width: inherit;
                 height: 100%;
-                color: #fff;
                 opacity: .5;
-
-                i {
-                    font-size: .42rem;
-                }
             }
             .router-link-active {
                 opacity: 1;
@@ -52,12 +46,7 @@
         .navigation-search {
             height: @navBarHeight;
             width: @navBarHeight;
-            color: #fff;
             display: block;
-            font-size: .36rem;
-            i {
-                font-size: .36rem;
-            }
         }
     }
 </style>

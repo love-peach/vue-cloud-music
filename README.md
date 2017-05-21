@@ -35,6 +35,7 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 - 适配方案
 - 动态给页面设置标题
 - 文档记录.开发过程中遇到的坑
+- gh-page 项目预览页面
 
 ## 目录结构
 
@@ -72,6 +73,16 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 │   └── view----------------------------------页面
 └── static------------------------------------静态资源
 ```
+
+
+## 规范
+
+## 添加字体图标
+
+## 动态添加组价
+component 组件，由vue提供，具体文档可看这里
+[动态组件](https://cn.vuejs.org/v2/guide/components.html#动态组件)
+
 
 
 
