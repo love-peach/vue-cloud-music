@@ -17,24 +17,24 @@
     @import "../../style/variable";
 
     @grayColor: #e7e9e9;
-    @leftOffset: 90px;
+    @leftOffset: .9rem;
     .min-music-wrap {
         .option-list {
             padding: 0;
             .show-left {
-                .px2rem(padding-left, @leftOffset)
+                padding-left: @leftOffset;
             }
             .mu-item-left {
-                .px2rem(left, 26);
+                left: .26rem;
             }
             .list-icon {
-                .px2rem(font-size, 42);
+                font-size: .42rem;
                 color: @themeColors;
                 line-height: 1;
             }
         }
         .mu-divider.inset {
-            .px2rem(margin-left, @leftOffset)
+            margin-left: @leftOffset;
         }
         .abc {
             background: @grayColor;

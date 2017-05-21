@@ -15,17 +15,17 @@
     @import "../../style/variable";
 
     .navigation-wrap {
-        .px2rem(height, 90);
+        height: .9rem;
         display: flex;
         align-items: center;
         background-color: @themeColors;
         .navigation-switch {
-            .px2rem(width, 80);
+            width: .8rem;
             height: 100%;
             min-width: inherit;
             color: #fff;
             i {
-                .px2rem(font-size, 42);
+                font-size: .42rem;
             }
         }
         .navigation-content {
@@ -35,14 +35,14 @@
             justify-content: center;
 
             .content-item {
-                .px2rem(width, 100);
+                width: 1rem;
                 min-width: inherit;
                 height: 100%;
                 color: #fff;
                 opacity: .5;
 
                 i {
-                    .px2rem(font-size, 42);
+                    font-size: .42rem;
                 }
             }
             .router-link-active {
@@ -50,13 +50,13 @@
             }
         }
         .navigation-search {
-            .px2rem(height, @navBarHeight);
-            .px2rem(width, @navBarHeight);
+            height: @navBarHeight;
+            width: @navBarHeight;
             color: #fff;
             display: block;
-            .px2rem(font-size, 36);
+            font-size: .36rem;
             i {
-                .px2rem(font-size, 36);
+                font-size: .36rem;
             }
         }
     }

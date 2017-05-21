@@ -10,14 +10,14 @@
 <style scoped lang="less">
     @import "../../style/variable";
     .play-bar-wrap {
-        .padding2rem(10);
+        padding: .1rem;
         display: flex;
         height: 100%;
         background-color: rgba(255,2555,255,.9);
         .player {
-            .px2rem(width, 66);
-            .px2rem(height, 66);
-            .px2rem(margin-right, 15)
+            width: .66rem;
+            height: .66rem;
+            margin-right: .25rem;
         }
         .player-info {
             display: flex;
@@ -25,12 +25,12 @@
             flex-direction: column;
             justify-content: space-around;
             .sing-name {
-                .px2rem(font-size, 28);
+                font-size: .28rem;
                 line-height: 1;
                 color: #333;
             }
             .player-name {
-                .px2rem(font-size, 12);
+                font-size: .12rem;
                 line-height: 1;
                 color: #666;
             }

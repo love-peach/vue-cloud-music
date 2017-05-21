@@ -1,44 +1,8 @@
 @themeColors: #d33a31;
 
-@navBarHeight: 90px;
-@playBarHeight: 88px;
-@foundMusicTopBarHeight: 70px;
-@baseOffset: 10px;
-
-// 以下是做单位转换用的 其中 @baseFontSize 需要和 rem.less中的一致。
-@baseFontSize: 32;
-
-.px2rem(@name, @px){
-    @{name}: unit(@px / @baseFontSize, rem);
-}
-
-
-// 处理padding
-.padding2rem (@paddingTop, @paddingRight, @paddingBottom, @paddingLeft) {
-  padding: unit(@paddingTop / @baseFontSize, rem) unit(@paddingRight / @baseFontSize, rem) unit(@paddingBottom / @baseFontSize, rem) unit(@paddingLeft / @baseFontSize, rem);
-}
-.padding2rem (@paddingTop, @paddingRightLeft, @paddingBottom) {
-  padding: unit(@paddingTop / @baseFontSize, rem) unit(@paddingRightLeft / @baseFontSize, rem) unit(@paddingBottom / @baseFontSize, rem)
-}
-.padding2rem (@paddingTopBottom, @paddingRightLeft) {
-  padding: unit(@paddingTopBottom / @baseFontSize, rem) unit(@paddingRightLeft / @baseFontSize, rem);
-}
-.padding2rem (@padding) {
-  padding: unit(@padding / @baseFontSize, rem);
-}
-
-// 处理margin
-.margin2rem (@marginTop, @marginRight, @marginBottom, @marginLeft) {
-  margin: unit(@marginTop / @baseFontSize, rem) unit(@marginRight / @baseFontSize, rem) unit(@marginBottom / @baseFontSize, rem) unit(@marginLeft / @baseFontSize, rem);
-}
-.margin2rem (@marginTop, @marginRightLeft, @marginBottom) {
-  margin: unit(@marginTop / @baseFontSize, rem) unit(@marginRightLeft / @baseFontSize, rem) unit(@marginBottom / @baseFontSize, rem)
-}
-.margin2rem (@marginTopBottom, @marginRightLeft) {
-  margin: unit(@marginTopBottom / @baseFontSize, rem) unit(@marginRightLeft / @baseFontSize, rem);
-}
-.margin2rem (@margin) {
-  margin: unit(@margin / @baseFontSize, rem);
-}
+@navBarHeight: .9rem;
+@playBarHeight: .88rem;
+@foundMusicTopBarHeight: .7rem;
+@baseOffset: .1rem;
 
 

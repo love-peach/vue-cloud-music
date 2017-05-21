@@ -21,7 +21,7 @@
     }
     .found-music-wrap {
         .tab-bar {
-            .px2rem(height, @foundMusicTopBarHeight);
+            height: @foundMusicTopBarHeight;
             background-color: #fff;
             .mu-tab-link {
                 color: #333;
@@ -37,7 +37,7 @@
             }
         }
         .content-wrap {
-            .px2rem(top, @foundMusicTopBarHeight);
+            top: @foundMusicTopBarHeight;
             position: absolute;
             bottom: 0;
             width: 100%;

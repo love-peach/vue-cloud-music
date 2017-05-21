@@ -41,6 +41,12 @@ a img {border:0 none;}
 html,
 body {
     height: 100%;
-    /* 下面这个 overflow 为了解决 margin 穿透的问题*/
-    overflow: hidden;
+}
+
+/*
+rem.js 将 html 根字体大小设置成了100px, 为了防止影响页面布局，
+以及第三方 ui 库，将 body 设置成默认大小。有的 ui 库会自动设置 body 的字体大小
+*/
+body {
+    font-size: 16px;
 }

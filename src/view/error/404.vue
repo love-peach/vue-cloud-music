@@ -13,12 +13,12 @@
         background-color: #f5f5f5;
         text-align: center;
         .error-type {
-            .px2rem(width, 400);
-            .margin2rem(200, 0, 30);
+            width: 4rem;
+            margin: 2rem 0 .3rem;
         }
         .error-tip {
-            .px2rem(margin-bottom, 15);
-            .px2rem(font-size, 28);
+            margin-bottom: .15rem;
+            font-size: .28rem;
             line-height: 1.5;
             color: #333;
         }

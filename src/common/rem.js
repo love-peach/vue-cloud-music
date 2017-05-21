@@ -3,8 +3,8 @@
 export default  function () {
     // 基于设计图是宽度750px （网易的移动端解决方案）
     var deviceWidth = document.body.clientWidth;
-    if(deviceWidth > 640) {
-        deviceWidth = 640;
+    if(deviceWidth > 750) {
+        deviceWidth = 750;
     }
-    document.documentElement.style.fontSize = deviceWidth/20  + 'px';
+    document.documentElement.style.fontSize = deviceWidth/7.5  + 'px';
 }
