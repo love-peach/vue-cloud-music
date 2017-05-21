@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import todoList from './modules/todolist'
 
 import sidePanel from './modules/sidePanel'
+import foundMusic from './modules/foundMusic'
 
 import demoStore from './modules/demo'
 
@@ -13,6 +14,7 @@ export default new Vuex.Store({
     modules: {
         todoList,
         demoStore,
-        sidePanel
+        sidePanel,
+        foundMusic
     },
 })
