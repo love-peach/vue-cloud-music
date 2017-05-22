@@ -21,6 +21,10 @@ import '@/style/common.less'
 import flexAble from './common/rem'
 flexAble();
 
+window.onresize=function(){
+    flexAble();
+}
+
 Vue.config.productionTip = false
 
 Vue.use(MuseUI)

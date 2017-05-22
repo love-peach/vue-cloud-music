@@ -29,6 +29,9 @@
                 min-height: inherit;
                 padding: 0;
             }
+            .mu-tab-text {
+                line-height: @foundMusicTopBarHeight;
+            }
             .mu-tab-active {
                 color: @themeColors;
             }
