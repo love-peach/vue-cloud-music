@@ -8,6 +8,7 @@
 </style>
 <script type="text/javascript">
 
+    import axios from 'axios'
     import * as API from '../../api/API'
 
     export default{
@@ -19,9 +20,19 @@
         components:{
         },
         mounted() {
-            API.get('/search', {
+            // API.get('/search', {
+            //     params:{
+            //         keywords: '成都'
+            //     }
+            // })
+            axios.get('/api/search', {
                 params:{
-                    keywords: '天下'
+                    keywords: '成都'
+                }
+            })
+            axios.get('/api/song/detail', {
+                params:{
+                    ids: '347230'
                 }
             })
 

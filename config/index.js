@@ -1,6 +1,20 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 
+// 获取本地ip
+function getIPAdress(){
+    var interfaces = require('os').networkInterfaces();
+    for(var devName in interfaces){
+        var iface = interfaces[devName];
+        for(var i=0;i<iface.length;i++){
+            var alias = iface[i];
+            if(alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal){
+                return alias.address;
+            }
+        }
+    }
+}
+
 module.exports = {
   build: {
     env: require('./prod.env'),
@@ -27,7 +41,15 @@ module.exports = {
     autoOpenBrowser: true,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+        '/api': {
+            target: `http://${localIp}:3000/`,
+            changeOrigin: true,
+            pathRewrite: {
+                '^/api': ''
+            }
+        },
+    },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
