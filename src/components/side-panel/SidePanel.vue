@@ -6,7 +6,7 @@
 <style scoped lang="less">
     @import "../../style/variable";
     .side-panel-wrap {
-        width: 6.18rem;
+        width: 5.25rem;
     }
 </style>
 <script>
