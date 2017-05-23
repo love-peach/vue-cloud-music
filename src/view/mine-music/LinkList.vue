@@ -14,17 +14,17 @@
 </template>
 <style lang="less">
     @import "../../style/variable";
-    @leftOffset: 1rem;
+    @leftOffset: .9rem;
     .link-list-wrap {
         .option-list {
             padding: 0;
             .show-left {
-                padding: .28rem 0 .28rem @leftOffset;
+                padding-left: @leftOffset;
                 min-height: inherit;
-                height: 1.04rem;
+                height: .9rem;
             }
             .mu-item-left {
-                left: .3rem;
+                left: .25rem;
                 width: inherit;
             }
             .mu-item-content {
@@ -35,18 +35,18 @@
                 position: relative;
             }
             .list-icon {
-                font-size: .48rem;
+                font-size: .42rem;
                 color: @themeColors;
                 line-height: 1;
             }
             .list-title {
                 color: @textColorMain;
-                font-size: .32rem;
-                margin-right: .12rem;
+                font-size: .28rem;
+                margin-right: .1rem;
             }
             .list-amount {
                 color: #888;
-                font-size: .26rem;
+                font-size: .24rem;
             }
             .list-divider {
                 /* 小米5 上 transform scaleY(0.5) 好像不管用*/

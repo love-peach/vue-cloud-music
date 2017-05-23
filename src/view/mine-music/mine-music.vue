@@ -11,15 +11,14 @@
     .min-music-wrap {
         top: 0;
         position: absolute;
-        bottom: 0;
+        bottom: @playBarHeight;
         width: 100%;
         overflow-y: auto;
 
         /*width: 256px;*/
         /*height: 300px;*/
-        /*overflow: auto;*/
-        -webkit-overflow-scrolling: touch;
-        overflow-scrolling: touch;
+        /*-webkit-overflow-scrolling: touch;*/
+        /*overflow-scrolling: touch;*/
         /*border: 1px solid #d9d9d9;*/
         /*position: relative;*/
         user-select: none;

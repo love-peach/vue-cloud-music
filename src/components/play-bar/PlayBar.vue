@@ -15,8 +15,8 @@
         height: 100%;
         background-color: rgba(255,2555,255,.9);
         .player {
-            width: .76rem;
-            height: .76rem;
+            width: .65rem;
+            height: .65rem;
             margin-right: .15rem;
         }
         .player-info {

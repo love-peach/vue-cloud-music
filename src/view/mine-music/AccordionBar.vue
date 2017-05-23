@@ -30,8 +30,8 @@
             line-height: 1;
         }
         .iconfont {
-            height: .64rem;
-            line-height: .64rem;
+            height: .54rem;
+            line-height: .6rem;
             text-align: center;
             transition: transform .3s ease;
         }
@@ -40,8 +40,8 @@
             font-size: .26rem;
         }
         .icon-shezhi {
-            padding: 0 .32rem;
-            font-size: .30rem;
+            padding: 0 .28rem;
+            font-size: .26rem;
 
         }
         .rotate {

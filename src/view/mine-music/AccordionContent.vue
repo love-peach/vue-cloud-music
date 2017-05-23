@@ -6,6 +6,16 @@
                     <img class="item-avatar" src="../../assets/img/logo.png" slot="leftAvatar">
                 </mu-list-item>
                 <mu-flat-button slot="right" class="item-opetation-demo"  @click.stop.prevent="demo"><i class="iconfont icon-androidmorevertical"></i></mu-flat-button>
+                <mu-divider class="list-divider" inset/>
+
+            </div>
+            <div style="position: relative">
+                <mu-list-item title="我喜欢的音乐" titleClass="item-title" describeText="100首" describeTextClass="item-amount" >
+                    <img class="item-avatar" src="../../assets/img/logo.png" slot="leftAvatar">
+                </mu-list-item>
+                <mu-flat-button slot="right" class="item-opetation-demo"  @click.stop.prevent="demo"><i class="iconfont icon-androidmorevertical"></i></mu-flat-button>
+                <mu-divider class="list-divider" inset/>
+
             </div>
         </mu-list>
     </div>
@@ -17,45 +27,46 @@
         .content-item-wrap {
             padding: 0;
             .mu-item {
-                height: 1.24rem;
+                height: 1.06rem;
+                padding-left: 1.24rem;
             }
             .item-title {
                 color: @textColorMain;
-                font-size: .3rem;
+                font-size: .26rem;
             }
             .item-amount {
                 color: @textColorSilver;
                 font-size: .24rem;
                 line-height: 1;
-                margin-top: .2rem;
+                margin-top: .15rem;
             }
             .item-avatar {
-                height: 1.14rem;
-                width: 1.14rem;
+                height: .96rem;
+                width: .96rem;
             }
             .mu-item-left {
                 left: @baseOffset;
                 width: inherit;
             }
             .mu-item.show-right {
-                padding-left: 1.45rem;
+                padding-left: 1.24rem;
             }
             .mu-item-right {
                 right: 0;
                 width: inherit;
                 i {
                     line-height: 1;
-                    font-size: .3rem;
+                    font-size: .26rem;
                 }
             }
             .item-opetation {
                 min-width: inherit;
-                padding: 0 .30rem;
+                padding: 0 .25rem;
                 height: 100%;
             }
             .item-opetation-demo {
                 min-width: inherit;
-                padding: 0 .30rem;
+                padding: 0 .26rem;
                 height: 100%;
                 position: absolute;
                 top: 0;
@@ -65,7 +76,7 @@
                 /* 小米5 上 transform scaleY(0.5) 好像不管用*/
                 transform: scaleY(1);
                 background-color: rgba(0,0,0,.05);
-                margin-left: 1.45rem;
+                margin-left: 1.24rem;
             }
         }
     }

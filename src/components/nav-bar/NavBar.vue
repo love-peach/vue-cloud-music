@@ -20,7 +20,7 @@
         align-items: center;
         background-color: @themeColors;
         .iconfont {
-            font-size: .54rem;
+            font-size: .46rem;
             color: #fff;
         }
         .navigation-switch {
