@@ -1,3 +1,6 @@
+const baseUrl = 'http://music.163.com/api';
+
 /**
- * Created by zhangjinpei on 2017/5/20.
+ * 搜索
  */
+export const Search = `${baseUrl}/search/get/` ;

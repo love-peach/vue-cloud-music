@@ -6,7 +6,10 @@
 <style>
 
 </style>
-<script>
+<script type="text/javascript">
+
+    import * as API from '../../api/API'
+
     export default{
         data(){
             return{
@@ -14,6 +17,18 @@
             }
         },
         components:{
+        },
+        mounted() {
+            API.get('/search', {
+                params:{
+                    keywords: '天下'
+                }
+            })
+
+        },
+        methods: {
+
         }
+
     }
 </script>
