@@ -23,6 +23,12 @@
         /*border: 1px solid #d9d9d9;*/
         /*position: relative;*/
         user-select: none;
+        .mu-refresh-svg-icon {
+            color: @themeColors;
+        }
+        .mu-circle-spinner {
+            border-color: @themeColors;
+        }
     }
 </style>
 <script type="text/javascript">
