@@ -83,6 +83,36 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 component 组件，由vue提供，具体文档可看这里
 [动态组件](https://cn.vuejs.org/v2/guide/components.html#动态组件)
 
+## 挂载全局组件
+
+这里说的全局组件与不同组件引入方式不同，或者说调用方式不一样。
+我们平常写一个组件，在 .vue 中的引入方式为：
+
+```html
+<template>
+    <some-component>...</some-component>
+</template>
+```
+
+有时候，我们需要像 `window.alert('xxx')` 一样调用。
+本项目中有个例子，把 mint-ui 中的 Toast 给挂载到全局上了：
+
+main.js
+```js
+import Toast from './components/toast';
+Vue.prototype.$toast = Toast;
+```
+
+这样，就可以像这样调用了
+
+```
+this.$toast('操作成功');
+```
+
+tips: 后来我发现，其实没这么麻烦。mint-ui 中所有 JS 组件均有单独的仓库，
+因此，可以 通过引入 npm 包，的形式使用。本项目中也有相关的例子。
 
 
-
+## 网易云音乐 NodeJS 版 API
+为了尽可能的模仿云音乐，最好是能调用官方的API。
+[网易云音乐 NodeJS 版 API](https://binaryify.github.io/NeteaseCloudMusicApi/#/)，跨站请求伪造 (CSRF), 伪造请求头,调用官方 API。

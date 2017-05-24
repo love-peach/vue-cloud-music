@@ -6,7 +6,7 @@
         <AccordionWrap title="收藏的歌单" :amount="1" type="songListCollection" />
     </div>
 </template>
-<style lang="less">
+<style scoped lang="less">
     @import "../../style/variable";
     .min-music-wrap {
         top: 0;
@@ -29,6 +29,9 @@
             border-color: @themeColors;
         }
     }
+    .iconfont {
+        font-size: 30px!important;
+    }
 </style>
 <script type="text/javascript">
     import LinkList from './LinkList.vue';
@@ -49,7 +52,10 @@
         mounted() {
 
             this.trigger = this.$el;
-            this.$toast({message:'aaaa'})
+            this.$toast({
+                message: '操作成功',
+                iconClass: 'iconfont icon-diantaibaoshe'
+            })
             console.log(123)
             promiseAjax.get('/ajax/get', null, {errorTip: false, successTip: '成功了！'}).then(res => {
                 console.log(res);
