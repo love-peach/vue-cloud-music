@@ -7,6 +7,11 @@ import router from './router'
 // 加载 store
 import store from './store/store'
 
+// 全局加载 Toast 组件
+import Toast from './components/toast'
+// Vue.use(Toast)
+Vue.prototype.$toast = Toast;
+
 // 加载 muse-ui 基础样式
 import 'muse-ui/dist/muse-ui.css'
 // import 'muse/styles/base.less'

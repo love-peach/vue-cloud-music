@@ -14,6 +14,7 @@ function getIPAdress(){
         }
     }
 }
+const localIp = getIPAdress();
 
 module.exports = {
   build: {

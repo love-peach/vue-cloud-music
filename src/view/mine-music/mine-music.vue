@@ -47,7 +47,10 @@
             LinkList
         },
         mounted() {
+
             this.trigger = this.$el;
+            this.$toast({message:'aaaa'})
+            console.log(123)
             promiseAjax.get('/ajax/get', null, {errorTip: false, successTip: '成功了！'}).then(res => {
                 console.log(res);
             }).catch(error => {
