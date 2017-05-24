@@ -36,7 +36,7 @@
 <script type="text/javascript">
     import LinkList from './LinkList.vue';
     import AccordionWrap from './AccordionWrap.vue';
-    import * as promiseAjax from '../../common/promise-ajax'
+    import API from '../../api/API';
 
     export default{
         data(){
@@ -50,29 +50,15 @@
             LinkList
         },
         mounted() {
+            API.get('/api/search', {
+                keyWord: '邓丽君'
+            });
 
             this.trigger = this.$el;
             this.$toast({
                 message: '操作成功',
                 iconClass: 'iconfont icon-diantaibaoshe'
             })
-            console.log(123)
-            promiseAjax.get('/ajax/get', null, {errorTip: false, successTip: '成功了！'}).then(res => {
-                console.log(res);
-            }).catch(error => {
-                console.log(error);
-            }).finally(() => {
-                console.log(123);
-            });
-            const postAjsx = promiseAjax.get('/ajax/post', null, {errorTip: false, successTip: '成功了！'});
-            postAjsx.then(res => {
-                console.log(res);
-            }).catch(error => {
-                console.log(error);
-            }).finally(() => {
-                console.log(123);
-            });
-            postAjsx.cancel();
         },
         methods: {
             refresh () {

@@ -23,19 +23,19 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 # TODOLIST
 
-- 规范文件目录组织.
-- 路由.处理后退,重定向,权限等问题.
-- mock数据.处理请求拦截数据.
-- vuex.使用范本
-- iconfont.字体图标
-- 过度动画.transfrom
-- 引导页
-- 播放音乐api
-- less or sass 变量 换肤功能
-- 适配方案
-- 动态给页面设置标题
-- 文档记录.开发过程中遇到的坑
-- gh-page 项目预览页面
+- [ ] 规范文件目录组织.
+- [ ] 路由.处理后退,重定向,权限等问题.
+- [ ] mock数据.处理请求拦截数据.
+- [ ] vuex.使用范本
+- [x] iconfont.字体图标
+- [ ] 过度动画.transfrom
+- [ ] 引导页
+- [ ] 播放音乐api
+- [ ] less or sass 变量 换肤功能
+- [x] 适配方案
+- [ ] 动态给页面设置标题
+- [ ] 文档记录.开发过程中遇到的坑
+- [ ] gh-page 项目预览页面
 
 ## 目录结构
 
@@ -116,3 +116,12 @@ tips: 后来我发现，其实没这么麻烦。mint-ui 中所有 JS 组件均�
 ## 网易云音乐 NodeJS 版 API
 为了尽可能的模仿云音乐，最好是能调用官方的API。
 [网易云音乐 NodeJS 版 API](https://binaryify.github.io/NeteaseCloudMusicApi/#/)，跨站请求伪造 (CSRF), 伪造请求头,调用官方 API。
+
+
+## 参考链接
+[详讲：vue2+vuex+axios](http://blog.csdn.net/zhaohaixin0418/article/details/68488136)
+
+[Axios 中文说明](http://www.kancloud.cn/yunye/axios/234845)
+
+[Vue2.0 进阶组件篇 3 值得一看的（Toast 组件）](https://juejin.im/post/58e65fb944d904006d3543de?utm_source=tuicool&utm_medium=referral)
+

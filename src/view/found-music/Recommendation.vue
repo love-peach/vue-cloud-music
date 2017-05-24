@@ -9,7 +9,7 @@
 <script type="text/javascript">
 
     import axios from 'axios'
-    import * as API from '../../api/API'
+    import API from '../../api/API'
 
     export default{
         data(){
@@ -20,22 +20,12 @@
         components:{
         },
         mounted() {
-            // API.get('/search', {
-            //     params:{
-            //         keywords: '成都'
-            //     }
-            // })
-            axios.get('/api/search', {
-                params:{
-                    keywords: '成都'
-                }
+            API.get('/api/search', {
+                keywords: '成都'
             })
-            axios.get('/api/song/detail', {
-                params:{
-                    ids: '347230'
-                }
+            API.get('/api/song/detail', {
+                ids: '347230'
             })
-
         },
         methods: {
 
