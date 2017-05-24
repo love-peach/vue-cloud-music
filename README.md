@@ -117,6 +117,43 @@ tips: 后来我发现，其实没这么麻烦。mint-ui 中所有 JS 组件均�
 为了尽可能的模仿云音乐，最好是能调用官方的API。
 [网易云音乐 NodeJS 版 API](https://binaryify.github.io/NeteaseCloudMusicApi/#/)，跨站请求伪造 (CSRF), 伪造请求头,调用官方 API。
 
+## 调用 网易云音乐 api 遇到的问题
+
+跨域的问题
+
+解决办法：通过代理。修改 `config/index` 文件中 中的 dev.proxyTable 为
+
+```js
+{
+    '/api': {
+        target: `http://localhost:3000/`,
+        changeOrigin: true,
+        pathRewrite: {
+            '^/api': ''
+        }
+    }
+}
+```
+
+tips: 因为是多人开发，所以，费劲周折的获取本机 IP ，其实是多余的。
+
+```js
+// 获取本地ip
+function getIPAdress(){
+    var interfaces = require('os').networkInterfaces();
+    for(var devName in interfaces){
+        var iface = interfaces[devName];
+        for(var i=0;i<iface.length;i++){
+            var alias = iface[i];
+            if(alias.family === 'IPv4' && alias.address !== '127.0.0.1' && !alias.internal){
+                return alias.address;
+            }
+        }
+    }
+}
+const localIp = getIPAdress();
+```
+
 
 ## 参考链接
 [详讲：vue2+vuex+axios](http://blog.csdn.net/zhaohaixin0418/article/details/68488136)

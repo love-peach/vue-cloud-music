@@ -11,7 +11,7 @@
     .min-music-wrap {
         top: 0;
         position: absolute;
-        bottom: @playBarHeight;
+        padding-bottom: @playBarHeight;
         width: 100%;
         overflow-y: auto;
 

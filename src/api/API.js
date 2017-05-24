@@ -38,6 +38,7 @@ instance.interceptors.response.use(response => {
 }, error => {
     // Do something with response error
     console.log('请求完成出错该做的事');
+
     return Promise.reject(error);
 });
 
@@ -56,9 +57,7 @@ export function fetch(url, data, method = 'get', options = {}) {
             cancelToken: new CancelToken(c => cancel = c),
             ...options,
         }).then(response => {
-            console.log(response, 'then');
-
-            resolve(response.data);
+            resolve(response.data.result, response.data);
         }).catch((error) => {
             reject(error);
 
@@ -73,7 +72,6 @@ export function fetch(url, data, method = 'get', options = {}) {
 }
 export default {
     get(url, params, options) {
-        console.log(url, params, 'url, params000');
         return fetch(url, params, 'get', options);
     },
     post(url, params, options) {

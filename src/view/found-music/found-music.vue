@@ -1,14 +1,21 @@
 <template>
     <div class="found-music-wrap">
-        <mu-tabs class="tab-bar" :value="activeTab" @change="handleTabChange">
-            <mu-tab v-for="tab in tabs" :value="tab.value" :title="tab.title" :key="tab.value"/>
+        <mu-tabs class="tab-bar" :value="$route.path" @change="handleTabChange" lineClass="tab-link-highlight">
+            <mu-tab v-for="tab in tabs" :value="tab.path" :key="tab.value" @click="changeRouter(tab.path)">
+                <router-link :to="tab.path">{{tab.title}}</router-link>
+            </mu-tab>
         </mu-tabs>
-        <keep-alive> <!--保存在内存中，防止重复渲染-->
-            <transition name="fade" mode="out-in">
-                <!--component 组件，由vue提供，具体文档可看这里 https://cn.vuejs.org/v2/guide/components.html#动态组件-->
-                <component class="content-wrap" v-bind:is="activeTab"></component>
-            </transition>
-        </keep-alive>
+        <div class="content-wrap">
+            <keep-alive> <!--保存在内存中，防止重复渲染-->
+                <transition name="fade" mode="out-in" >
+                    <!--component 组件，由vue提供，具体文档可看这里 https://cn.vuejs.org/v2/guide/components.html#动态组件-->
+                    <!--<component class="content-wrap" v-bind:is="activeTab"></component>-->
+                    <router-view></router-view>
+
+                </transition>
+            </keep-alive>
+        </div>
+
     </div>
 </template>
 <style lang="less">
@@ -20,6 +27,11 @@
         opacity: 0
     }
     .found-music-wrap {
+        top: 0;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        overflow-y: auto;
         .tab-bar {
             height: @foundMusicTopBarHeight;
             background-color: #fff;
@@ -32,10 +44,13 @@
             .mu-tab-text {
                 line-height: @foundMusicTopBarHeight;
             }
+            a {
+                color: @themeColors;
+            }
             .mu-tab-active {
                 color: @themeColors;
             }
-            .mu-tab-link-highlight {
+            .tab-link-highlight {
                 background-color: @themeColors;
             }
         }
@@ -60,15 +75,19 @@
                     {
                         value: 'Recommendation',
                         title: '个性推荐',
+                        path: '/found-music/recommendation'
                     }, {
                         value: 'SongList',
                         title: '歌单',
+                        path: '/found-music/song_list'
                     }, {
                         value: 'AnchorRadio',
                         title: '主播电台',
+                        path: '/found-music/anchor_radio'
                     }, {
                         value: 'Ranking',
                         title: '排行榜',
+                        path: '/found-music/ranking'
                     }
                 ]
             }
@@ -87,6 +106,9 @@
         methods: {
             handleTabChange (val) {
                 this.$store.dispatch('changeActiveTab', val);
+            },
+            changeRouter(path) {
+                this.$router.push(path);
             },
         },
     }
