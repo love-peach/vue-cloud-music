@@ -1,5 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+
+import App from '../App.vue'
+import Login from '@/view/login/index.vue'
 import Home from '@/components/home/index.vue'
 
 import MineMusic from '@/view/mine-music/mine-music.vue'
@@ -19,7 +22,8 @@ import DemoIntroduce from '@/view/demo/introduce.vue'
 import DemoTodoList from '@/view/demo/demo-todoList/index.vue'
 
 
-Vue.use(Router)
+Vue.use(Router);
+
 
 export default new Router({
     linkActiveClass: 'router-link-active',
@@ -27,41 +31,65 @@ export default new Router({
     routes: [
         {
             path: '/',
-            component: Home,
-            children: [
+            component: App, //顶层路由，对应index.html
+            children: [ //二级路由。对应App.vue
+                //地址为空时跳转home页面
                 {
-                    path: '/mine-music',
-                    component: MineMusic
+                    path: '',
+                    redirect: '/home'
                 },
                 {
-                    path: '/found-music',
-                    component: FoundMusic,
+                    path: '/login',
+                    component: Login,
+                },
+                // 首屏页面，以 home 为模板
+                {
+                    path: '/home',
+                    component: Home,
                     children: [
+                        // 进入主页，如果没有具体指哪个页面，将重定向到 发现音乐页面
                         {
-                            path: '/found-music/',
-                            component: FoundMusicRecommendation
+                            path: '',
+                            redirect: '/found-music',
+                        },
+                        // 我的音乐
+                        {
+                            path: '/mine-music',
+                            component: MineMusic
+                        },
+                        // 发现音乐
+                        {
+                            path: '/found-music',
+                            component: FoundMusic,
+                            children: [
+                                // 进入发现页面，如果没有具体指哪个页面，将重定向到 发现音乐下的推荐音乐页面
+                                {
+                                    path: '',
+                                    redirect: '/found-music/recommendation',
+                                },
+                                {
+                                    path: '/found-music/recommendation',
+                                    component: FoundMusicRecommendation
+                                },
+                                {
+                                    path: '/found-music/song_list',
+                                    component: FoundMusicSongList
+                                },
+                                {
+                                    path: '/found-music/anchor_radio',
+                                    component: FoundMusicAnchorRadio
+                                },
+                                {
+                                    path: '/found-music/ranking',
+                                    component: FoundMusicRanking
+                                },
+                            ],
                         },
                         {
-                            path: '/found-music/recommendation',
-                            component: FoundMusicRecommendation
+                            path: '/friend',
+                            component: Friend
                         },
-                        {
-                            path: '/found-music/song_list',
-                            component: FoundMusicSongList
-                        },
-                        {
-                            path: '/found-music/anchor_radio',
-                            component: FoundMusicAnchorRadio
-                        },
-                        {
-                            path: '/found-music/ranking',
-                            component: FoundMusicRanking
-                        },
-                    ],
-                },
-                {
-                    path: '/friend',
-                    component: Friend
+                    ]
                 },
             ],
         },
