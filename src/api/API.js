@@ -57,7 +57,7 @@ export function fetch(url, data, method = 'get', options = {}) {
             cancelToken: new CancelToken(c => cancel = c),
             ...options,
         }).then(response => {
-            resolve(response.data.result, response.data);
+            resolve(response.data.result || response.data || response, response.data);
         }).catch((error) => {
             reject(error);
 
