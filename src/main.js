@@ -4,6 +4,9 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import VueScroller from 'vue-scroller'
+Vue.use(VueScroller)
+
 // 加载 store
 import store from './store/store'
 
@@ -17,8 +20,6 @@ import 'muse-ui/dist/muse-ui.css'
 
 import MuseUI from 'muse-ui'
 
-// 加载 normalize common 样式
-import '@/style/normalize.css'
 import '@/style/common.less'
 
 // 加载适配方案
@@ -60,6 +61,21 @@ promiseAjax.init({
         // return url.startsWith('/mock');
     },
 });
+
+Waves.displayEffect();
+
+var config = {
+    // How long Waves effect duration
+    // when it's clicked (in milliseconds)
+    duration: 500,
+
+    // Delay showing Waves effect on touch
+    // and hide the effect if user scrolls
+    // (0 to disable delay) (in milliseconds)
+    delay: 200
+};
+
+Waves.init(config);
 
 /* eslint-disable no-new */
 new Vue({

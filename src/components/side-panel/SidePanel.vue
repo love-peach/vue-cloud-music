@@ -1,22 +1,19 @@
 <template>
-    <mu-drawer class="side-panel-wrap" @close="toggle()" :open="$store.state.sidePanel.openSidePanel" :docked="$store.state.sidePanel.docked">
-        侧边栏面板
-    </mu-drawer>
+    <Popup v-if="$store.state.sidePanel.openSidePanel" @close="toggle()">
+        侧边栏面板内容
+    </Popup>
 </template>
-<style scoped lang="less">
-    @import "../../style/variable";
-    .side-panel-wrap {
-        width: 5.25rem;
-    }
+<style lang="less">
+
 </style>
-<script>
+<script type="text/javascript">
+    import Popup from '../../components/popup/Popup.vue';
     export default{
         data(){
-            return{
-                msg:'hello vue'
-            }
+            return{}
         },
         components:{
+            Popup,
         },
         methods: {
             toggle(flag) {

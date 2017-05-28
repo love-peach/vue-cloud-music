@@ -4,30 +4,23 @@ const types = {
 
 const state = {
     openSidePanel: false,
-    docked: true,
-};
-
-const getters = {
-
 };
 
 const actions = {
-    toggleSidePanel ({ commit, state }, flag) {
-        commit(types.TOGGLE_SIDE_PANEL, flag);
+    toggleSidePanel ({ commit }) {
+        commit(types.TOGGLE_SIDE_PANEL);
     },
 };
 
 const mutations = {
-    [types.TOGGLE_SIDE_PANEL] (state, flag) {
+    [types.TOGGLE_SIDE_PANEL] (state) {
         state.openSidePanel = !state.openSidePanel;
-        state.docked = !flag;
     },
 };
 
 
 export default {
     state,
-    getters,
     actions,
     mutations
 }

@@ -1,58 +1,48 @@
 <template>
     <div class="link-list-wrap">
-        <mu-list class="option-list">
-            <div v-for="(item, index) in optionList" :key="index">
-                <mu-list-item>
-                    <i :class="[item.icon, 'iconfont', 'list-icon' ]" slot="left"></i>
-                    <span class="list-title">{{item.title}}</span>
-                    <span class="list-amount">({{item.amount}})</span>
-                </mu-list-item>
-                <mu-divider class="list-divider" v-if="index !== (optionList.length - 1) " inset/>
+        <div class="list-item waves-effect waves-classic" v-for="(item, index) in optionList" :key="index">
+            <i :class="[item.icon, 'iconfont', 'item-icon' ]"></i>
+            <div class="item-text">
+                <span class="text-title">{{item.title}}</span>
+                <span class="text-amount">({{item.amount}})</span>
             </div>
-        </mu-list>
+        </div>
     </div>
 </template>
 <style lang="less">
     @import "../../style/variable";
+
     @leftOffset: .9rem;
     .link-list-wrap {
-        .option-list {
-            padding: 0;
-            .show-left {
-                padding-left: @leftOffset;
-                min-height: inherit;
-                height: .9rem;
-            }
-            .mu-item-left {
-                left: .25rem;
-                width: inherit;
-            }
-            .mu-item-content {
-                display: flex;
-                align-items: center;
-            }
-            .list-item-wrap {
-                position: relative;
-            }
-            .list-icon {
+        .list-item {
+            display: flex;
+            flex: 1;
+            align-items: center;
+            .item-icon {
                 font-size: .42rem;
                 color: @themeColors;
                 line-height: 1;
+                width: @leftOffset;
+                text-align: center;
             }
-            .list-title {
-                color: @textColorMain;
-                font-size: .28rem;
-                margin-right: .1rem;
+            .item-text {
+                display: flex;
+                flex: 1;
+                height: .9rem;
+                align-items: center;
+                border-bottom: 1px solid rgba(0,0,0,.05);
+                .text-title {
+                    color: @textColorMain;
+                    font-size: .28rem;
+                    margin-right: .1rem;
+                }
+                .text-amount {
+                    color: #888;
+                    font-size: .24rem;
+                }
             }
-            .list-amount {
-                color: #888;
-                font-size: .24rem;
-            }
-            .list-divider {
-                /* 小米5 上 transform scaleY(0.5) 好像不管用*/
-                transform: scaleY(1);
-                background-color: rgba(0,0,0,.05);
-                margin-left: @leftOffset;
+            &:last-child .item-text{
+                border-bottom: 0;
             }
         }
     }
@@ -89,4 +79,5 @@
         components:{
         }
     }
+
 </script>

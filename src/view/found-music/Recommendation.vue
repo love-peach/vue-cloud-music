@@ -6,8 +6,6 @@
             </swiper-slide>
             <div class="swiper-pagination"  slot="pagination"></div>
         </swiper>
-        <div>dfdf</div>
-
     </div>
 </template>
 <style scoped lang="less">
@@ -20,6 +18,7 @@
     }
 </style>
 <script type="text/javascript">
+    import { Popup } from 'mint-ui';
 
     import axios from 'axios'
     import API from '../../api/API'
@@ -29,6 +28,7 @@
     export default{
         data(){
             return{
+                demo: true,
                 swiperOption: {
                     notNextTick: true,
                     autoplay: 3000,
@@ -50,7 +50,8 @@
         },
         components:{
             swiper,
-            swiperSlide
+            swiperSlide,
+            Popup,
         },
         computed: {
             swiper: function() {
