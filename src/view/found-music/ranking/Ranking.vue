@@ -8,7 +8,7 @@
     </div>
 </template>
 <style scoped lang="less">
-    @import "../../style/variable";
+    @import "../../../style/variable";
     .ranking-wrap {
         margin-bottom: @playBarHeight;
         /* 防止出现滚动条，因为有子组件宽度超过100%*/
@@ -160,11 +160,9 @@
                 const vm = this;
                 request.getRanking(type)
                     .then(data => {
-                        console.log(data);
                         const rankingItem = vm.rankingOfficial[data.ToplistType]
                         rankingItem.coverImgUrl = data.coverImgUrl;
                         rankingItem.tracksPreview = data.tracks.slice(0,3);
-                        console.log(rankingItem, 'rankingItem');
                     })
                     .catch()
             }

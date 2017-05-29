@@ -1,5 +1,5 @@
 <template>
-    <div @click="$emit('closeBottomSheet')">
+    <div @click="$emit('close')">
         收藏歌单的选项
     </div>
 </template>

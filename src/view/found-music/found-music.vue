@@ -1,21 +1,15 @@
 <template>
     <div class="found-music-wrap">
-        <mu-tabs class="tab-bar" :value="$route.path" @change="handleTabChange" lineClass="tab-link-highlight">
-            <mu-tab v-for="tab in tabs" :value="tab.path" :key="tab.value" @click="changeRouter(tab.path)">
-                <router-link :to="tab.path">{{tab.title}}</router-link>
-            </mu-tab>
-        </mu-tabs>
+        <TabBar :tabs="tabs" :value="$route.path" @change="handleTabChange"/>
         <div class="content-wrap">
             <keep-alive> <!--保存在内存中，防止重复渲染-->
                 <transition name="fade" mode="out-in" >
                     <!--component 组件，由vue提供，具体文档可看这里 https://cn.vuejs.org/v2/guide/components.html#动态组件-->
                     <!--<component class="content-wrap" v-bind:is="activeTab"></component>-->
                     <router-view></router-view>
-
                 </transition>
             </keep-alive>
         </div>
-
     </div>
 </template>
 <style lang="less">
@@ -27,33 +21,6 @@
         opacity: 0
     }
     .found-music-wrap {
-        top: 0;
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        overflow-y: auto;
-        .tab-bar {
-            height: @foundMusicTopBarHeight;
-            background-color: #fff;
-            .mu-tab-link {
-                color: #333;
-                height: 100%;
-                min-height: inherit;
-                padding: 0;
-            }
-            .mu-tab-text {
-                line-height: @foundMusicTopBarHeight;
-            }
-            a {
-                color: @themeColors;
-            }
-            .mu-tab-active {
-                color: @themeColors;
-            }
-            .tab-link-highlight {
-                background-color: @themeColors;
-            }
-        }
         .content-wrap {
             top: @foundMusicTopBarHeight;
             position: absolute;
@@ -64,28 +31,29 @@
     }
 </style>
 <script type="text/javascript">
-    import Recommendation from './Recommendation.vue';
-    import SongList from './SongList.vue';
-    import AnchorRadio from './AnchorRadio.vue';
-    import Ranking from './Ranking.vue';
+    import { TabContainer, TabContainerItem, Navbar, TabItem } from 'mint-ui';
+    import TabBar from '../../components/tab-bar/TabBar.vue';
+
     export default{
         data(){
             return {
+                selected: '1',
+                active: '1',
                 tabs: [
                     {
-                        value: 'Recommendation',
+                        value: '/found-music/recommendation',
                         title: '个性推荐',
                         path: '/found-music/recommendation'
                     }, {
-                        value: 'SongList',
+                        value: '/found-music/song_list',
                         title: '歌单',
                         path: '/found-music/song_list'
                     }, {
-                        value: 'AnchorRadio',
+                        value: '/found-music/anchor_radio',
                         title: '主播电台',
                         path: '/found-music/anchor_radio'
                     }, {
-                        value: 'Ranking',
+                        value: '/found-music/ranking',
                         title: '排行榜',
                         path: '/found-music/ranking'
                     }
@@ -98,17 +66,15 @@
             },
         },
         components: {
-            Recommendation,
-            SongList,
-            AnchorRadio,
-            Ranking
+            TabContainer,
+            TabContainerItem,
+            Navbar,
+            TabItem,
+            TabBar
         },
         methods: {
             handleTabChange (val) {
                 this.$store.dispatch('changeActiveTab', val);
-            },
-            changeRouter(path) {
-                this.$router.push(path);
             },
         },
     }

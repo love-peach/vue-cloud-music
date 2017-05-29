@@ -1,97 +1,96 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import store from '../store/store';
 
-import App from '../App.vue'
-import Login from '@/view/login/index.vue'
-import Home from '@/components/home/index.vue'
+const App = resolve => require(['../App.vue'], resolve);
+const Login = resolve => require(['../view/login/index.vue'], resolve);
+const Home = resolve => require(['../components/home/index.vue'], resolve);
 
-import MineMusic from '@/view/mine-music/mine-music.vue'
-import FoundMusic from '@/view/found-music/found-music.vue'
-import Friend from '@/view/friend/friend.vue'
+const MineMusic = resolve => require(['../view/mine-music/mine-music.vue'], resolve);
+const FoundMusic = resolve => require(['../view/found-music/found-music.vue'], resolve);
+const Friend = resolve => require(['../view/friend/friend.vue'], resolve);
 
-import FoundMusicRecommendation from '@/view/found-music/Recommendation.vue'
-import FoundMusicSongList from '@/view/found-music/SongList.vue'
-import FoundMusicAnchorRadio from '@/view/found-music/AnchorRadio.vue'
-import FoundMusicRanking from '@/view/found-music/Ranking.vue'
+const FoundMusicRecommendation = resolve => require(['../view/found-music/recommendation/Recommendation.vue'], resolve);
+const FoundMusicSongList = resolve => require(['../view/found-music/song-list/SongList.vue'], resolve);
+const FoundMusicAnchorRadio = resolve => require(['../view/found-music/anchor-radio/AnchorRadio.vue'], resolve);
+const FoundMusicRanking = resolve => require(['../view/found-music/ranking/Ranking.vue'], resolve);
 
-import error404 from '@/view/error/404.vue'
-import error500 from '@/view/error/500.vue'
+const error404 = resolve => require(['../view/error/404.vue'], resolve);
+const error500 = resolve => require(['../view/error/500.vue'], resolve);
 
-import Demo from '@/view/demo/index.vue'
-import DemoIntroduce from '@/view/demo/introduce.vue'
-import DemoTodoList from '@/view/demo/demo-todoList/index.vue'
-
+const Demo = resolve => require(['../view/demo/index.vue'], resolve);
+const DemoIntroduce = resolve => require(['../view/demo/introduce.vue'], resolve);
+const DemoTodoList = resolve => require(['../view/demo/demo-todoList/index.vue'], resolve);
 
 Vue.use(Router);
-
 
 export default new Router({
     linkActiveClass: 'router-link-active',
     mode: 'history',
     routes: [
         {
+            path: '/login',
+            component: Login,
+        },
+        // 首屏页面，以 home 为模板
+        {
             path: '/',
-            component: App, //顶层路由，对应index.html
-            children: [ //二级路由。对应App.vue
-                //地址为空时跳转home页面
+            component: Home,
+            children: [
                 {
                     path: '',
-                    redirect: '/home'
+                    redirect: '/found-music',
                 },
+                // 我的音乐
                 {
-                    path: '/login',
-                    component: Login,
+                    path: '/mine-music',
+                    component: MineMusic
                 },
-                // 首屏页面，以 home 为模板
+                // 发现音乐
                 {
-                    path: '/home',
-                    component: Home,
+                    path: '/found-music',
+                    component: FoundMusic,
+                    beforeEnter: (to, from, next) => {
+                        // 刷新当前页面，防止重定向到首页
+                        if (from.path === '/') {
+                            next();
+                            return;
+                        }
+                        // 后退按钮，防止重定向到首页
+                        if (store.state.foundMusic.activeTab !== to.path) {
+                            next(store.state.foundMusic.activeTab);
+                        } else {
+                            next();
+                        }
+                    },
                     children: [
-                        // 进入主页，如果没有具体指哪个页面，将重定向到 发现音乐页面
                         {
                             path: '',
-                            redirect: '/found-music',
-                        },
-                        // 我的音乐
-                        {
-                            path: '/mine-music',
-                            component: MineMusic
-                        },
-                        // 发现音乐
-                        {
-                            path: '/found-music',
-                            component: FoundMusic,
-                            children: [
-                                // 进入发现页面，如果没有具体指哪个页面，将重定向到 发现音乐下的推荐音乐页面
-                                {
-                                    path: '',
-                                    redirect: '/found-music/recommendation',
-                                },
-                                {
-                                    path: '/found-music/recommendation',
-                                    component: FoundMusicRecommendation
-                                },
-                                {
-                                    path: '/found-music/song_list',
-                                    component: FoundMusicSongList
-                                },
-                                {
-                                    path: '/found-music/anchor_radio',
-                                    component: FoundMusicAnchorRadio
-                                },
-                                {
-                                    path: '/found-music/ranking',
-                                    component: FoundMusicRanking
-                                },
-                            ],
+                            redirect: '/found-music/recommendation',
                         },
                         {
-                            path: '/friend',
-                            component: Friend
+                            path: '/found-music/recommendation',
+                            component: FoundMusicRecommendation
                         },
-                    ]
+                        {
+                            path: '/found-music/song_list',
+                            component: FoundMusicSongList
+                        },
+                        {
+                            path: '/found-music/anchor_radio',
+                            component: FoundMusicAnchorRadio
+                        },
+                        {
+                            path: '/found-music/ranking',
+                            component: FoundMusicRanking
+                        },
+                    ],
                 },
-            ],
+                {
+                    path: '/friend',
+                    component: Friend
+                },
+            ]
         },
         {
             path: '/demo',

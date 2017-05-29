@@ -3,7 +3,7 @@ const types = {
 }
 
 const state = {
-    activeTab: 'Recommendation'
+    activeTab: '/found-music/recommendation'
 };
 
 const getters = {

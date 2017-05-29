@@ -5,16 +5,10 @@
             <div class="accordion-bar-text">{{title}}({{amount}})</div>
             <i class="iconfont icon-shezhi" @click.stop.prevent="openBottomSheet"></i>
         </div>
-        <!-- 在用 mu-bottom-sheet 的时候有个问题：如果页面中用了mu-bottom-sheet 组件，不把他显示出来，直接跳页面，会报错。（官网demo也有）-->
-        <!-- 解决办法是 添加 v-if 在打开的时候在加载 mu-bottom-sheet 组件，但是这个时候没有过度效果-->
-        <!-- 因为报错好像不影响程序的运行，所以，这里就没有加 v-if -->
-        <!--<div v-if="isShowBottomSheet">-->
-            <mu-bottom-sheet :open="isShowBottomSheet" @close="closeBottomSheet">
-                {{title}}
-                <!-- 这里将 closeBottomSheet 方法传递下去，是为了，在用户选择某个选项时，关闭 sheet-->
-                <component v-bind:is="type" @closeBottomSheet="closeBottomSheet"></component>
-            </mu-bottom-sheet>
-        <!--</div>-->
+
+        <Popup v-if="isShowBottomSheet" @close="toggle()">
+            <component v-bind:is="type" @closeBottomSheet="closeBottomSheet"></component>
+        </Popup>
     </div>
 
 </template>
@@ -54,6 +48,8 @@
     // songListCreated, songListCollection
     import OptionsSongListCreated from './OptionsSongListCreated.vue';
     import OptionsSongListCollection from './OptionsSongListCollection.vue';
+    import Popup from '../../components/popup/Popup.vue';
+
     export default{
         props: {
             title: {
@@ -80,7 +76,8 @@
         },
         components: {
             songListCreated: OptionsSongListCreated,
-            songListCollection: OptionsSongListCollection
+            songListCollection: OptionsSongListCollection,
+            Popup,
         },
         methods: {
             closeBottomSheet () {

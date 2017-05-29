@@ -1,63 +1,55 @@
 <template>
     <div class="navigation-wrap">
-        <mu-flat-button class="navigation-switch" @click="toggle(true)" width="80"><i class="iconfont icon-liebiao2"></i></mu-flat-button>
-        <div class="navigation-content">
-            <mu-flat-button class="content-item" width="80" :to="{ path: '/mine-music' }"><i class="iconfont icon-music"></i></mu-flat-button>
-            <mu-flat-button class="content-item" width="80" :to="{ path: '/found-music' }"><i class="iconfont icon-wangyiyunyinlezizhi-copy"></i></mu-flat-button>
-            <mu-flat-button class="content-item" width="80" :to="{ path: '/friend' }"><i class="iconfont icon-pengyou"></i></mu-flat-button>
+        <i class="iconfont icon-liebiao2 nav-toggle waves-effect waves-classic" @click="toggle(true)"></i>
+        <div class="nav-content">
+            <router-link class="content-item waves-effect waves-classic" width="80" :to="{ path: '/mine-music' }"><i class="iconfont icon-music"></i></router-link>
+            <router-link class="content-item waves-effect waves-classic" width="80" :to="{ path: '/found-music' }"><i class="iconfont icon-wangyiyunyinlezizhi-copy"></i></router-link>
+            <router-link class="content-item waves-effect waves-classic" width="80" :to="{ path: '/friend' }"><i class="iconfont icon-pengyou"></i></router-link>
         </div>
-        <mu-icon-button class="navigation-search">
-            <i class="iconfont icon-search"></i>
-        </mu-icon-button>
+        <i class="iconfont icon-search nav-search waves-effect waves-classic"></i>
     </div>
 </template>
 <style scoped lang="less">
     @import "../../style/variable";
 
     .navigation-wrap {
-        height: @navBarHeight;
         display: flex;
-        align-items: center;
         background-color: @themeColors;
-        .iconfont {
-            font-size: .46rem;
-            color: #fff;
-        }
-        .navigation-switch {
+        .nav-toggle {
             width: @navBarHeight;
-            height: 100%;
-            min-width: inherit;
         }
-        .navigation-content {
+        .nav-content {
             display: flex;
             flex: 1;
-            height: 100%;
+            align-items: center;
             justify-content: center;
             .content-item {
                 width: @navBarHeight;
-                min-width: inherit;
                 height: 100%;
+                text-align: center;
                 opacity: .5;
+                transition: opacity .3s ease;
             }
             .router-link-active {
                 opacity: 1;
             }
         }
-        .navigation-search {
-            height: @navBarHeight;
+        .nav-search {
             width: @navBarHeight;
-            display: block;
+        }
+        .iconfont {
+            height: @navBarHeight;
+            line-height: @navBarHeight;
+            text-align: center;
+            font-size: .46rem;
+            color: #fff;
         }
     }
 </style>
 <script>
     export default{
         data(){
-            return{
-                msg:'hello vue'
-            }
-        },
-        components:{
+            return{}
         },
         methods: {
             toggle(flag) {

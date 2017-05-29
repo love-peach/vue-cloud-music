@@ -1,13 +1,13 @@
 <template>
-    <div class="link-list-wrap">
-        <div class="list-item waves-effect waves-classic" v-for="(item, index) in optionList" :key="index">
+    <ul class="link-list-wrap">
+        <li class="list-item waves-effect waves-classic" v-for="(item, index) in optionList" :key="index">
             <i :class="[item.icon, 'iconfont', 'item-icon' ]"></i>
             <div class="item-text">
                 <span class="text-title">{{item.title}}</span>
                 <span class="text-amount">({{item.amount}})</span>
             </div>
-        </div>
-    </div>
+        </li>
+    </ul>
 </template>
 <style lang="less">
     @import "../../style/variable";

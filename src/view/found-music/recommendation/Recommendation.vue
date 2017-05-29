@@ -18,27 +18,27 @@
     }
 </style>
 <script type="text/javascript">
-    import { Popup } from 'mint-ui';
+    import {Popup} from 'mint-ui';
 
     import axios from 'axios'
-    import API from '../../api/API'
+    import API from '../../../api/API'
     import VueAwesomeSwiper from 'vue-awesome-swiper'
-    import { swiper, swiperSlide } from 'vue-awesome-swiper';
+    import {swiper, swiperSlide} from 'vue-awesome-swiper';
 
     export default{
         data(){
-            return{
+            return {
                 demo: true,
                 swiperOption: {
                     notNextTick: true,
                     autoplay: 3000,
-                    direction : 'horizontal',
-                    grabCursor : true,
-                    setWrapperSize :true,
+                    direction: 'horizontal',
+                    grabCursor: true,
+                    setWrapperSize: true,
                     // autoHeight: true,
-                    pagination : '.swiper-pagination',
-                    paginationClickable :true,
-                    observeParents:true,
+                    pagination: '.swiper-pagination',
+                    paginationClickable: true,
+                    observeParents: true,
                     debugger: true,
                     onTransitionStart(swiper){
                         console.log(swiper)
@@ -48,13 +48,13 @@
                 banners: [],
             }
         },
-        components:{
+        components: {
             swiper,
             swiperSlide,
             Popup,
         },
         computed: {
-            swiper: function() {
+            swiper: function () {
                 return this.$refs.mySwiper.swiper
             }
         },
@@ -66,9 +66,7 @@
                 this.banners = res.banners;
             })
         },
-        methods: {
-
-        }
+        methods: {}
 
     }
 </script>

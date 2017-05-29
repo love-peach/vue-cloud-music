@@ -2,9 +2,21 @@
     <div class="min-music-wrap">
         <scroller :on-refresh="refresh">
             <LinkList />
-            <AccordionWrap title="创建的歌单" :amount="1" type="songListCreated" />
-            <AccordionWrap title="收藏的歌单" :amount="1" type="songListCollection" />
+            <AccordionWrap
+                title="创建的歌单"
+                :amount="1"
+                manageType="songListCreated"
+                @openActionSheet="handleToggleActionSheet"/>
+            <AccordionWrap
+                title="收藏的歌单"
+                :amount="1"
+                manageType="songListCollection"
+                @openActionSheet="handleToggleActionSheet"/>
         </scroller>
+        <ActionSheet v-if="isShowActionSheet" @close="handleToggleActionSheet">
+            <!-- 这里将 handleToggleActionSheet 方法传递下去，是为了，在用户选择某个选项时，关闭 sheet-->
+            <component v-bind:is="actionSheetType" @close="handleToggleActionSheet"></component>
+        </ActionSheet>
     </div>
 </template>
 <style scoped lang="less">
@@ -28,9 +40,11 @@
 
 </style>
 <script type="text/javascript">
-    import { Loadmore } from 'mint-ui';
+    import ActionSheet from '../../components/action-sheet/ActionSheet.vue';
     import LinkList from './LinkList.vue';
     import AccordionWrap from './AccordionWrap.vue';
+    import OptionsSongListCreated from './OptionsSongListCreated.vue';
+    import OptionsSongListCollection from './OptionsSongListCollection.vue';
     import API from '../../api/API';
 
     export default{
@@ -39,14 +53,17 @@
                 refreshing: false,
                 trigger: null,
                 allLoaded: false,
-                items: []
+                isShowActionSheet: false,
+                items: [],
+                actionSheetType: '',
             }
         },
         components: {
             AccordionWrap,
             LinkList,
-            Loadmore,
-            myLoadmore: Loadmore,
+            ActionSheet,
+            songListCreated: OptionsSongListCreated,
+            songListCollection: OptionsSongListCollection,
         },
         mounted() {
             API.get('/api/search', {
@@ -57,8 +74,6 @@
                 message: '操作成功',
                 iconClass: 'iconfont icon-diantaibaoshe'
             });
-            this.top = 1
-            this.bottom = 20
         },
         methods: {
             refresh(done) {
@@ -66,7 +81,11 @@
                     done()
                 }, 1500)
             },
-
+            handleToggleActionSheet(type) {
+                console.log(type, '0009');
+                this.isShowActionSheet = !this.isShowActionSheet;
+                this.actionSheetType = type;
+            },
         }
     }
 </script>

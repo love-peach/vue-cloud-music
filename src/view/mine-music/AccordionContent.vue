@@ -1,87 +1,69 @@
 <template>
-    <div class="accordion-content-wrap">
-        <mu-list class="content-item-wrap" @change="change" @itemClick="itemClick">
-            <div style="position: relative">
-                <mu-list-item title="我喜欢的音乐" titleClass="item-title" describeText="100首" describeTextClass="item-amount" >
-                    <img class="item-avatar" src="../../assets/img/logo.png" slot="leftAvatar">
-                </mu-list-item>
-                <mu-flat-button slot="right" class="item-opetation-demo"  @click.stop.prevent="demo"><i class="iconfont icon-androidmorevertical"></i></mu-flat-button>
-                <mu-divider class="list-divider" inset/>
-
+    <ul class="accordion-content-wrap">
+        <li v-for=" n in (1,3)" class="content-item waves-effect waves-classic">
+            <div class='item-avatar'>
+                <img class="item-img" src="../../assets/img/logo.png">
             </div>
-            <div style="position: relative">
-                <mu-list-item title="我喜欢的音乐" titleClass="item-title" describeText="100首" describeTextClass="item-amount" >
-                    <img class="item-avatar" src="../../assets/img/logo.png" slot="leftAvatar">
-                </mu-list-item>
-                <mu-flat-button slot="right" class="item-opetation-demo"  @click.stop.prevent="demo"><i class="iconfont icon-androidmorevertical"></i></mu-flat-button>
-                <mu-divider class="list-divider" inset/>
-
+            <div class="item-main">
+                <p class="main-text">
+                    <span class="text-title">我喜欢的音乐</span>
+                    <span class="text-amount">100首</span>
+                </p>
+                <i class="iconfont icon-androidmorevertical text-operation waves-effect waves-classic" @click.prevent.stop=""></i>
             </div>
-        </mu-list>
-    </div>
+        </li>
+    </ul>
 </template>
 <style lang="less">
     @import "../../style/variable";
     @textColorSilver: #888;
     .accordion-content-wrap {
-        .content-item-wrap {
-            padding: 0;
-            .mu-item {
-                height: 1.06rem;
-                padding-left: 1.24rem;
+        .content-item {
+            display: flex;
+            height: 1.06rem;
+            .item-avatar {
+                width: 1.24rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .item-img {
+                    height: .96rem;
+                    width: .96rem;
+                }
             }
-            .item-title {
+            .item-main {
+                display: flex;
+                flex: 1;
+                align-items: stretch;
+                border-bottom: 1px solid rgba(0,0,0,.05);
+            }
+            .main-text {
+                display: flex;
+                flex: 1;
+                flex-direction: column;
+                justify-content: center;
+            }
+            .text-title {
                 color: @textColorMain;
                 font-size: .26rem;
             }
-            .item-amount {
+            .text-amount {
                 color: @textColorSilver;
                 font-size: .24rem;
                 line-height: 1;
                 margin-top: .15rem;
             }
-            .item-avatar {
-                height: .96rem;
-                width: .96rem;
-            }
-            .mu-item-left {
-                left: @baseOffset;
-                width: inherit;
-            }
-            .mu-item.show-right {
-                padding-left: 1.24rem;
-            }
-            .mu-item-right {
-                right: 0;
-                width: inherit;
-                i {
-                    line-height: 1;
-                    font-size: .26rem;
-                }
-            }
-            .item-opetation {
-                min-width: inherit;
-                padding: 0 .25rem;
-                height: 100%;
-            }
-            .item-opetation-demo {
-                min-width: inherit;
-                padding: 0 .26rem;
-                height: 100%;
-                position: absolute;
-                top: 0;
-                right: 0;
-            }
-            .list-divider {
-                /* 小米5 上 transform scaleY(0.5) 好像不管用*/
-                transform: scaleY(1);
-                background-color: rgba(0,0,0,.05);
-                margin-left: 1.24rem;
+            .text-operation {
+                display: flex;
+                align-items: center;
+                padding: 0 .3rem;
             }
         }
     }
 </style>
 <script type="text/javascript">
+    import ActionSheet from '../../components/action-sheet/ActionSheet.vue';
+
     export default{
         data(){
             return{
@@ -89,6 +71,7 @@
             }
         },
         components:{
+            ActionSheet,
         },
         methods: {
             change() {
