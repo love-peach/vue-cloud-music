@@ -10,6 +10,10 @@ Vue.use(VueScroller)
 // 加载 store
 import store from './store/store'
 
+// 原型添加 moment 日期处理插件
+// import moment from 'moment'
+// Vue.prototype.$moment = moment;
+
 // 全局加载 Toast 组件
 import Toast from './components/toast'
 Vue.prototype.$toast = Toast;

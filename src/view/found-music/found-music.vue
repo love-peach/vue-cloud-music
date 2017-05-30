@@ -25,6 +25,7 @@
             top: @foundMusicTopBarHeight;
             position: absolute;
             bottom: 0;
+            padding-bottom: @playBarHeight;
             width: 100%;
             overflow-y: auto;
         }
