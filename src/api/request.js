@@ -23,18 +23,23 @@ export default {
         return API.get(`/api/top/list?idx=${type}`)
     },
 
-    // 个性推荐 - banner
+    // 发现音乐 - 个性推荐 - banner
     getRecommendBanner() {
         return API.get(Interface.banner)
     },
 
-    // 个性推荐 - 推荐歌单
+    // 发现音乐 - 个性推荐 - 推荐歌单
     getRecommendSongList() {
         return API.get(Interface.recommendSongList)
     },
 
-    // 个性推荐 - 主播电台
+    // 发现音乐 - 个性推荐 - 主播电台
     getRecommendAnchorRadio() {
         return API.get(Interface.recommendAnchorRadio)
+    },
+
+    // 发现音乐 - 歌单 - 精品歌单
+    getSongListHighQuality(params) {
+        return API.get(Interface.songListHighQuality, params)
     },
 }

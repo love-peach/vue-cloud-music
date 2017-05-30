@@ -1,21 +1,22 @@
 <template>
-    <div class="demo">
+    <div class="song-list-wrap">
         <!--<refreshControl :refreshing="refreshing" :trigger="trigger" @refresh="refresh"/>-->
-        <div style="height: 800px;border: 1px solid red;">歌单</div>
         <!--<infiniteScroll :scroller="scroller" :loading="loading" @load="loadMore"/>-->
+        <!--精品歌单入口-->
+        <Banner />
+
     </div>
 </template>
 <style scoped lang="less">
-    .demo {
-        height: 100%;
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
-        border: 1px solid #d9d9d9;
+    @import "../../../style/variable";
+    .song-list-wrap {
+
     }
 </style>
 <script type="text/javascript">
     // import refreshControl from '../../components/muse-ui/refresh-control/index.vue';
     // import infiniteScroll from '../../components/muse-ui/infinite-scroll/InfinityScroll.vue'
+    import Banner from './Banner.vue';
     export default{
         data(){
             return {
@@ -29,6 +30,7 @@
         components: {
             // refreshControl,
             // infiniteScroll,
+            Banner,
         },
         mounted () {
             this.trigger = this.$el;

@@ -25,6 +25,10 @@
                 align-items: center;
                 justify-content: center;
                 color: #333;
+                font-size: .28rem;
+            }
+            .tab-active {
+                color: @themeColors;
             }
         }
         .tab-line-height {

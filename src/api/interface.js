@@ -4,12 +4,15 @@ export default {
     // 搜索
     search: `${baseUrl}/search/get/`,
 
-    // 个性推荐 - banner
+    // 发现音乐 - 个性推荐 - banner
     banner: `${baseUrl}/banner`,
 
-    // 个性推荐 - 推荐歌单
+    // 发现音乐 - 个性推荐 - 推荐歌单
     recommendSongList: `${baseUrl}/personalized`,
 
-    // 个性推荐 - 主播电台
+    // 发现音乐 - 个性推荐 - 主播电台
     recommendAnchorRadio: `${baseUrl}/personalized/djprogram`,
+
+    // 发现音乐 - 歌单 - 精品歌单
+    songListHighQuality: `${baseUrl}/top/playlist/highquality`,
 }
