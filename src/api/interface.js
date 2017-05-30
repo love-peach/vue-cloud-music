@@ -15,4 +15,7 @@ export default {
 
     // 发现音乐 - 歌单 - 精品歌单
     songListHighQuality: `${baseUrl}/top/playlist/highquality`,
+
+    // 发现音乐 - 歌单
+    foundMusicSongList: `${baseUrl}/top/playlist`,
 }

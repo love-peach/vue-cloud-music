@@ -42,4 +42,9 @@ export default {
     getSongListHighQuality(params) {
         return API.get(Interface.songListHighQuality, params)
     },
+
+    // 发现音乐 - 歌单
+    getFoundMusicSongList(params) {
+        return API.get(Interface.foundMusicSongList, params)
+    },
 }

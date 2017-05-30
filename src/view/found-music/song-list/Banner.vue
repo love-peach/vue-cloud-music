@@ -2,7 +2,7 @@
     <router-link class="boutique-entry" to="/" :style="{ backgroundImage: 'url(' + pic + cropStringBlur + ')'}">
         <img class="boutique-img" :src.lazy="pic + cropString">
         <div class="boutique-info">
-            <p class="info-name"><i class="iconfont"></i> 精品歌单 <i class="iconfont"></i></p>
+            <p class="info-name"><i class="iconfont icon-huangguan"></i> 精品歌单 <i class="iconfont icon-arrow-right"></i></p>
             <p class="info-des">{{des}}</p>
             <p class="info-tip">{{tip}}</p>
         </div>
@@ -41,8 +41,21 @@
             align-self: center;
         }
         .info-name {
+            align-self: center;
             margin-bottom: .25rem;
             font-size: .3rem;
+        }
+        .icon-huangguan {
+            display: inline-block;
+            height: .4rem;
+            width: .4rem;
+            line-height: .4rem;
+            text-align: center;
+            color: orange;
+            border-radius: 1rem;
+            border: 1px solid orange;
+            font-size: .28rem;
+            margin-right: .05rem;
         }
         .info-des {
             margin-bottom: .15rem;
@@ -62,7 +75,7 @@
             display:-webkit-box;
             -webkit-box-orient:vertical;
             -webkit-line-clamp:1;
-            line-height: 1.1;
+            line-height: 1.3;
         }
     }
 </style>

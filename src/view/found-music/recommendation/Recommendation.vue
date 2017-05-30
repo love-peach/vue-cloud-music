@@ -7,7 +7,9 @@
     </div>
 </template>
 <style scoped lang="less">
-
+    .recommendation-wrap {
+        overflow: hidden;
+    }
 </style>
 <script type="text/javascript">
     import Banner from './Banner.vue';

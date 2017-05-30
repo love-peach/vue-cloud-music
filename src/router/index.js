@@ -11,7 +11,7 @@ const FoundMusic = resolve => require(['../view/found-music/found-music.vue'], r
 const Friend = resolve => require(['../view/friend/friend.vue'], resolve);
 
 const FoundMusicRecommendation = resolve => require(['../view/found-music/recommendation/Recommendation.vue'], resolve);
-const FoundMusicSongList = resolve => require(['../view/found-music/song-list/SongList.vue'], resolve);
+const FoundMusicSongList = resolve => require(['../view/found-music/song-list/index.vue'], resolve);
 const FoundMusicAnchorRadio = resolve => require(['../view/found-music/anchor-radio/AnchorRadio.vue'], resolve);
 const FoundMusicRanking = resolve => require(['../view/found-music/ranking/Ranking.vue'], resolve);
 
