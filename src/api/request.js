@@ -48,6 +48,26 @@ export default {
         return API.get(Interface.foundMusicSongList, params)
     },
 
+    // 发现音乐 - 主播电台 - 每天听些好节目
+    getProgramRecommend() {
+        return API.get(Interface.programRecommend)
+    },
+
+    // 发现音乐 - 主播电台 - 推荐电台
+    getRadioRecommend(params) {
+        return API.get(Interface.radioRecommend, params)
+    },
+
+    // 获取电台分类
+    getRadioCategory(params) {
+        return API.get(Interface.radioCategory, params)
+    },
+
+    // 获取电台分类推荐，根据分类
+    getRadioByType(params) {
+        return API.get(Interface.radioCategoryByType, params)
+    },
+
     // 朋友圈 - 动态列表
     getFriendsDynamicList(params) {
         return API.get(Interface.friendsDynamicList, params)
