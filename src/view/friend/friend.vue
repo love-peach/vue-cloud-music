@@ -1,12 +1,12 @@
 <template>
     <div class="music-friend">
         <ul>
-            <li class="music-friend-item">
+            <li v-for="item in friendsLists" class="music-friend-item">
                 <div class="music-friend-item-title">
-                    <img class="user-portrait" src="../../assets/img/logo.png" alt="">
+                    <img class="user-portrait" :src="item.user.avatarUrl" alt="">
                     <div class="user-name">
                         <p>
-                            <span class="name">你要不要吃芒果千层</span>
+                            <span class="name" v-text="item.user.nickname"></span>
                             <span class="share">分享单曲:</span>
                         </p>
 
@@ -17,90 +17,39 @@
                 </div>
 
                 <div class="music-friend-item-content">
-                    <div class="describe">那些神一样的广告，哈哈，太魔性了！这波我服！</div>
+                    <div class="describe" v-text="JSON.parse(item.json).msg">那些神一样的广告，哈哈，太魔性了！这波我服！</div>
                     <div class="music-imgs">
-                        <img src="../../assets/img/musicImgs.png" alt="">
+                        <musicPhoto :photos="item.pics"></musicPhoto>
                     </div>
                     <div class="music-share">
 
                         <div class="music-name">
                             <div class="music-name-info">
-                                <img src="../../assets/img/music-share.png" alt="">
+                                <img :src="JSON.parse(item.json).song.album.img80x80" alt="">
+                                <!--音乐文件为：JSON.parse(item.json).song.mp3Url-->
                                 <div>
-                                    <p class="name">笑死朕</p>
-                                    <p class="author">陈奕迅</p>
+                                    <p class="name" v-text="JSON.parse(item.json).song.name">笑死朕</p>
+                                    <p class="author" v-text="JSON.parse(item.json).song.artists[0].name">陈奕迅</p>
                                  </div>
                             </div>
 
-                            <p class="source">——创意搜罗</p>
+                            <p class="source">—— {{item.rcmdInfo.reason}}</p>
 
                             <div class="music-tool">
-                                <span>
-                                    <i class="iconfont icon-zankongxingai"></i>15264
-                                </span>
-
-                                <span>
-                                    <i class="iconfont icon-momentmessage"></i>1908
-                                </span>
-
-                                <span>
-                                    <i class="iconfont icon-fenxiang"></i>7634
-                                </span>
-
-                                <i class="info-share iconfont icon-androidmorevertical"></i>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="music-line"></div>
-            </li>
-            <li class="music-friend-item">
-                <div class="music-friend-item-title">
-                    <img class="user-portrait" src="../../assets/img/logo.png" alt="">
-                    <div class="user-name">
-                        <p>
-                            <span class="name">你要不要吃芒果千层</span>
-                            <span class="share">分享单曲:</span>
-                        </p>
-
-                        <p>最近</p>
-                    </div>
-
-                    <div class="user-attention">+关注</div>
-                </div>
-
-                <div class="music-friend-item-content">
-                    <div class="describe">那些神一样的广告，哈哈，太魔性了！这波我服！</div>
-                    <div class="music-imgs">
-                        <img src="../../assets/img/musicImgs.png" alt="">
-                    </div>
-                    <div class="music-share">
-
-                        <div class="music-name">
-                            <div class="music-name-info">
-                                <img src="../../assets/img/music-share.png" alt="">
                                 <div>
-                                    <p class="name">笑死朕</p>
-                                    <p class="author">陈奕迅</p>
+                                     <span>
+                                         <i class="iconfont icon-zankongxingai" style="font-size: .35rem;"></i>{{item.info.likedCount}}
+                                    </span>
+
+                                    <span>
+                                    <i class="iconfont icon-momentmessage" ></i>{{item.forwardCount}}
+                                </span>
+
+                                    <span>
+                                    <i class="iconfont icon-fenxiang" style="position: relative;top: -0.04rem;"></i>{{item.info.likedCount}}
+                                </span>
                                 </div>
-                            </div>
 
-                            <p class="source">——创意搜罗</p>
-
-                            <div class="music-tool">
-                                <span>
-                                    <i class="iconfont icon-zankongxingai"></i>15264
-                                </span>
-
-                                <span>
-                                    <i class="iconfont icon-momentmessage"></i>1908
-                                </span>
-
-                                <span>
-                                    <i class="iconfont icon-fenxiang"></i>7634
-                                </span>
 
                                 <i class="info-share iconfont icon-androidmorevertical"></i>
 
@@ -111,61 +60,7 @@
 
                 <div class="music-line"></div>
             </li>
-            <li class="music-friend-item">
-                <div class="music-friend-item-title">
-                    <img class="user-portrait" src="../../assets/img/logo.png" alt="">
-                    <div class="user-name">
-                        <p>
-                            <span class="name">你要不要吃芒果千层</span>
-                            <span class="share">分享单曲:</span>
-                        </p>
 
-                        <p>最近</p>
-                    </div>
-
-                    <div class="user-attention">+关注</div>
-                </div>
-
-                <div class="music-friend-item-content">
-                    <div class="describe">那些神一样的广告，哈哈，太魔性了！这波我服！</div>
-                    <div class="music-imgs">
-                        <img src="../../assets/img/musicImgs.png" alt="">
-                    </div>
-                    <div class="music-share">
-
-                        <div class="music-name">
-                            <div class="music-name-info">
-                                <img src="../../assets/img/music-share.png" alt="">
-                                <div>
-                                    <p class="name">笑死朕</p>
-                                    <p class="author">陈奕迅</p>
-                                </div>
-                            </div>
-
-                            <p class="source">——创意搜罗</p>
-
-                            <div class="music-tool">
-                                <span>
-                                    <i class="iconfont icon-zankongxingai"></i>15264
-                                </span>
-
-                                <span>
-                                    <i class="iconfont icon-momentmessage"></i>1908
-                                </span>
-
-                                <span>
-                                    <i class="iconfont icon-fenxiang"></i>7634
-                                </span>
-
-                                <i class="info-share iconfont icon-androidmorevertical"></i>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="music-line"></div>
-            </li>
         </ul>
     </div>
 </template>
@@ -205,6 +100,7 @@
     }
     .user-name p:nth-of-type(1) {
         font-size:.23rem;
+        margin-bottom:.14rem;
         span.name {
             color: @friendUserColor;
         }
@@ -219,9 +115,9 @@
     }
     .user-attention {
         position: absolute;
-        top:50%;
+        top:-2.3%;
         right:.06rem;
-        transform:translateY(-50%);
+        /*transform:translateY(-50%);*/
         font-size: .23rem;
         color: @friendAccordion;
     }
@@ -233,7 +129,7 @@
     .describe {
         font-size: .23rem;
         color: @textColorMain;
-        margin-bottom: .12rem;
+        margin-bottom: .2rem;
     }
 
     .music-imgs {
@@ -256,6 +152,7 @@
             }
             .name {
                 margin-top: .16rem;
+                margin-bottom: .1rem;
                 font-size: .24rem;
                 font-weight: bold;
                 color: @textColorMain;
@@ -278,9 +175,12 @@
             position:relative;
             span {
                 font-size: .16rem;
-                margin-right:.5rem;
+                /*margin-right:.5rem;*/
+                width:1.44rem;
+                display:inline-block;
+
                 i {
-                    margin-right:.1rem;
+                    margin-right:.08rem;
                     font-size: .3rem;
                     vertical-align: middle;
                 }
@@ -300,13 +200,43 @@
 
 </style>
 <script>
+    import musicPhoto from './photo-lists/photo-view.vue';
+    import request from '../../api/request';
     export default{
         data(){
             return{
-                msg:'hello vue'
+                friendsLists :[],
             }
         },
         components:{
-        }
+            musicPhoto
+        },
+
+        methods: {
+            getFriendList() {
+                const vm = this;
+                request.getFriendsDynamicList()
+                    .then(data => {
+                        let tempData = data.event;
+                        let realData = [];
+                        tempData.forEach((n,i)=> {
+                            if(n.pics.length != 0) {
+                                realData.push(n)
+                            }
+                        });
+
+                        vm.friendsLists = realData;
+                        console.log(realData)
+
+
+                    })
+                    .catch()
+            }
+        },
+        beforeMount () {
+            this.getFriendList()
+        },
+
+
     }
 </script>

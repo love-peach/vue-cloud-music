@@ -18,4 +18,8 @@ export default {
 
     // 发现音乐 - 歌单
     foundMusicSongList: `${baseUrl}/top/playlist`,
+
+    // 朋友圈动态
+    // friendsDynamicList: `${baseUrl}/event`,
+    friendsDynamicList: 'static/json/test.json',
 }

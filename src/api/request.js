@@ -47,4 +47,9 @@ export default {
     getFoundMusicSongList(params) {
         return API.get(Interface.foundMusicSongList, params)
     },
+
+    // 朋友圈 - 动态列表
+    getFriendsDynamicList(params) {
+        return API.get(Interface.friendsDynamicList, params)
+    },
 }
