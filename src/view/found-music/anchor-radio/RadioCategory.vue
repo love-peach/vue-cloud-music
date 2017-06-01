@@ -2,14 +2,14 @@
     <div class="radio-category-wrap">
         <p class="part-name">热门分类</p>
         <div class="category-wrap">
-            <router-link v-for="category in categories.slice(0, 6)" to="/" class="category-item waves-effect waves-classic" >
+            <router-link v-for="(category, index) in categories.slice(0, 6)" to="/" class="category-item waves-effect waves-classic" :key="index" >
                 <img class="item-icon" :src="category.pic56x56Url + cropStr">
                 <span class="item-name">{{category.name}}</span>
             </router-link>
         </div>
         <p class="part-name">更多分类</p>
         <div class="category-wrap">
-            <router-link v-for="category in categories.slice(6)" to="/" class="category-item waves-effect waves-classic" >
+            <router-link v-for="(category, index) in categories.slice(6)" to="/" class="category-item waves-effect waves-classic" :key="index">
                 <img class="item-icon" :src="category.pic56x56Url + cropStr">
                 <span class="item-name">{{category.name}}</span>
             </router-link>

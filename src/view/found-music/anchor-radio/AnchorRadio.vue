@@ -2,7 +2,7 @@
     <div>
         <Banner />
         <div class="entry-bar">
-            <router-link class="entry-link waves-effect waves-classic" to="/"><i class="iconfont icon-fenlei"></i> 电台分类</router-link>
+            <router-link class="entry-link waves-effect waves-classic" to="/page/radio_category"><i class="iconfont icon-fenlei"></i> 电台分类</router-link>
             <router-link class="entry-link waves-effect waves-classic" to="/"><i class="iconfont icon-liebiao1"></i> 电台排行</router-link>
         </div>
         <Program />

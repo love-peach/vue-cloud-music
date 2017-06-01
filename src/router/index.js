@@ -5,6 +5,7 @@ import store from '../store/store';
 const App = resolve => require(['../App.vue'], resolve);
 const Login = resolve => require(['../view/login/index.vue'], resolve);
 const Home = resolve => require(['../components/home/index.vue'], resolve);
+const Page = resolve => require(['../components/secondary-pages/secondary-pages.vue'], resolve);
 
 const MineMusic = resolve => require(['../view/mine-music/mine-music.vue'], resolve);
 const FoundMusic = resolve => require(['../view/found-music/found-music.vue'], resolve);
@@ -14,6 +15,10 @@ const FoundMusicRecommendation = resolve => require(['../view/found-music/recomm
 const FoundMusicSongList = resolve => require(['../view/found-music/song-list/index.vue'], resolve);
 const FoundMusicAnchorRadio = resolve => require(['../view/found-music/anchor-radio/AnchorRadio.vue'], resolve);
 const FoundMusicRanking = resolve => require(['../view/found-music/ranking/Ranking.vue'], resolve);
+
+
+const RadioCategory = resolve => require(['../view/found-music/anchor-radio/RadioCategory.vue'], resolve);
+
 
 const error404 = resolve => require(['../view/error/404.vue'], resolve);
 const error500 = resolve => require(['../view/error/500.vue'], resolve);
@@ -91,6 +96,16 @@ export default new Router({
                     component: Friend
                 },
             ]
+        },
+        {
+            path: '/page',
+            component: Page,
+            children: [
+                {
+                    path: '/page/radio_category',
+                    component: RadioCategory,
+                },
+            ],
         },
         {
             path: '/demo',
