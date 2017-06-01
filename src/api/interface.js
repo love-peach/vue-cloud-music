@@ -32,6 +32,6 @@ export default {
     radioCategoryByType: `${baseUrl}/dj/recommend/type`,
 
     // 朋友圈动态
-    // friendsDynamicList: `${baseUrl}/event`,
-    friendsDynamicList: 'static/json/test.json',
+    friendsDynamicList: `${baseUrl}/event`,
+    // friendsDynamicList: 'static/json/test.json',
 }
