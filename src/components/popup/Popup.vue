@@ -19,6 +19,7 @@
         overflow: auto;
         background: rgba(0, 0, 0, 0.5);
         transition: background-color.3s ease;
+        font-size: 0;
         .popup-container {
             position: relative;
             /* 设置 inline-block 和 取消宽度的设置，是为了让在使用popup组件的地方，自己去定义*/
