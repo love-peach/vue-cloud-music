@@ -154,6 +154,9 @@ function getIPAdress(){
 const localIp = getIPAdress();
 ```
 
+## lockr  的使用。
+[lockr](https://github.com/tsironis/lockr)
+
 
 ## 参考链接
 [详讲：vue2+vuex+axios](http://blog.csdn.net/zhaohaixin0418/article/details/68488136)

@@ -14,11 +14,11 @@
     "axios-mock-adapter": "^1.8.1",
     "less": "^2.7.2",
     "less-loader": "^4.0.3",
+    "lockr": "^0.8.4",
     "mint-ui": "^2.2.7",
     "mockjs": "^1.0.1-beta3",
     "moment": "^2.18.1",
     "vue": "^2.2.6",
-    "vue-awesome-swiper": "^2.4.2",
     "vue-router": "^2.3.1",
     "vue-scroller": "^2.2.0",
     "vuex": "^2.3.1"

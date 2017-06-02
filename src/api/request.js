@@ -4,12 +4,14 @@
 
 import API from './API';
 import Interface from './interface';
+import storage from '../common/storage';
 
 export default {
     login(data, vm) {
         const ajaxPromise = API.get('/api/login/cellphone', data);
         ajaxPromise.then((data) => {
             if(data.code === 200) {
+                storage.setUserInfo(data.profile);
                 vm.$router.push('/');
             } else {
                 vm.$toast(data.msg);
