@@ -1,7 +1,7 @@
 <template>
     <div>
         <div :class="[`friend-photo-${photoLength}`]">
-            <img v-for="item in photos" :src="item.pcSquareUrl" alt="">
+            <img v-for="item in photos" :src="item.pcSquareUrl"  alt="">
         </div>
     </div>
 </template>

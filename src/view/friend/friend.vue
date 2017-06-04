@@ -1,7 +1,7 @@
 <template>
     <div class="music-friend">
         <ul>
-            <li v-for="item in friendsLists" class="music-friend-item">
+            <li v-for="item in friendsLists"  class="music-friend-item">
                 <div class="music-friend-item-title">
                     <img class="user-portrait" :src="item.user.avatarUrl" alt="">
                     <div class="user-name">
@@ -17,7 +17,7 @@
                 </div>
 
                 <div class="music-friend-item-content">
-                    <div class="describe" v-text="JSON.parse(item.json).msg">那些神一样的广告，哈哈，太魔性了！这波我服！</div>
+                    <div class="describe" v-text="JSON.parse(item.json).msg"></div>
                     <div class="music-imgs">
                         <musicPhoto :photos="item.pics"></musicPhoto>
                     </div>
@@ -28,8 +28,8 @@
                                 <img :src="JSON.parse(item.json).song.album.img80x80" alt="">
                                 <!--音乐文件为：JSON.parse(item.json).song.mp3Url-->
                                 <div>
-                                    <p class="name" v-text="JSON.parse(item.json).song.name">笑死朕</p>
-                                    <p class="author" v-text="JSON.parse(item.json).song.artists[0].name">陈奕迅</p>
+                                    <p class="name" v-text="JSON.parse(item.json).song.name"></p>
+                                    <p class="author" v-text="JSON.parse(item.json).song.artists[0].name"></p>
                                  </div>
                             </div>
 
@@ -220,7 +220,8 @@
                         let tempData = data.event;
                         let realData = [];
                         tempData.forEach((n,i)=> {
-                            if(n.pics.length != 0) {
+                            if(n.pics.length != 0 && (JSON.parse(n.json).song!==undefined)) {
+//                                console.log(JSON.parse(n.json).song)
                                 realData.push(n)
                             }
                         });
