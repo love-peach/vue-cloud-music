@@ -1,7 +1,7 @@
 <template>
     <div class="secondary-pages-wrap">
         <div class="pages-header">
-            <TopBar />
+            <router-view class="view two" name="header"></router-view>
         </div>
         <div class="pages-content">
             <keep-alive> <!--保存在内存中，防止重复渲染-->

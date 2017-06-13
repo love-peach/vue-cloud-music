@@ -1,5 +1,6 @@
 <template>
     <div class="top-bar-wrap">
+        <i class="iconfont icon-fanhui" @click="demo"></i>
        <router-link class="bar-link" to="/"><i class="iconfont icon-fanhui"></i></router-link>
         电台分类
     </div>
@@ -21,7 +22,7 @@
         }
     }
 </style>
-<script>
+<script type="text/javascript">
 
     export default{
         data(){
@@ -30,6 +31,12 @@
             }
         },
         components:{
+        },
+        methods: {
+            demo() {
+                console.log(this.$router);
+                // this.$router.back();
+            },
         }
     }
 </script>
