@@ -6,6 +6,8 @@ const App = resolve => require(['../App.vue'], resolve);
 const Login = resolve => require(['../view/login/index.vue'], resolve);
 const Home = resolve => require(['../components/home/index.vue'], resolve);
 const Page = resolve => require(['../components/secondary-pages/secondary-pages.vue'], resolve);
+const PageHeader  = resolve => require(['../components/secondary-pages/TopBar.vue'], resolve);
+
 
 const MineMusic = resolve => require(['../view/mine-music/mine-music.vue'], resolve);
 const FoundMusic = resolve => require(['../view/found-music/found-music.vue'], resolve);
@@ -103,7 +105,13 @@ export default new Router({
             children: [
                 {
                     path: '/page/radio_category',
-                    component: RadioCategory,
+                    meta: {
+                        title: '我的TV'
+                    },
+                    components: {
+                        default: RadioCategory,
+                        header: PageHeader,
+                    }
                 },
             ],
         },
