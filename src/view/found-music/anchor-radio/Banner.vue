@@ -17,7 +17,7 @@
 </style>
 <script type="text/javascript">
     import { Swipe, SwipeItem } from 'mint-ui';
-    import request from '../../../api/request';
+    import request from '@/api/request';
 
     export default{
         data(){

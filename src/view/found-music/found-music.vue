@@ -42,21 +42,21 @@
                 active: '1',
                 tabs: [
                     {
-                        value: '/found-music/recommendation',
+                        value: '/found_music/recommendation',
                         title: '个性推荐',
-                        path: '/found-music/recommendation'
+                        path: '/found_music/recommendation'
                     }, {
-                        value: '/found-music/song_list',
+                        value: '/found_music/song_list',
                         title: '歌单',
-                        path: '/found-music/song_list'
+                        path: '/found_music/song_list'
                     }, {
-                        value: '/found-music/anchor_radio',
+                        value: '/found_music/anchor_radio',
                         title: '主播电台',
-                        path: '/found-music/anchor_radio'
+                        path: '/found_music/anchor_radio'
                     }, {
-                        value: '/found-music/ranking',
+                        value: '/found_music/ranking',
                         title: '排行榜',
-                        path: '/found-music/ranking'
+                        path: '/found_music/ranking'
                     }
                 ]
             }

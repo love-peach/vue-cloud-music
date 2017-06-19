@@ -1,6 +1,6 @@
 <template>
     <div >
-        <TitleBar title="推荐歌单" :to="{path: '/found-music/song_list'}" />
+        <TitleBar title="推荐歌单" :to="{path: '/found_music/song_list'}" />
         <ul class="song-list-wrap">
             <li class="list-item-wrap" v-for="(item, index) in dataSource" :key="index">
                 <a class="item-wrap">

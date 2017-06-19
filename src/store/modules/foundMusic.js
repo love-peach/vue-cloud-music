@@ -3,7 +3,7 @@ const types = {
 }
 
 const state = {
-    activeTab: '/found-music/recommendation'
+    activeTab: '/found_music/recommendation'
 };
 
 const getters = {
@@ -11,13 +11,13 @@ const getters = {
 };
 
 const actions = {
-    changeActiveTab ({ commit, state }, tab) {
+    changeActiveTab({ commit, state }, tab) {
         commit(types.CHANGE_ACTIVE_TAB, tab);
     },
 };
 
 const mutations = {
-    [types.CHANGE_ACTIVE_TAB] (state, tab) {
+    [types.CHANGE_ACTIVE_TAB](state, tab) {
         state.activeTab = tab;
     },
 };

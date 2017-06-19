@@ -2,8 +2,8 @@
     <div class="navigation-wrap">
         <i class="iconfont icon-liebiao2 nav-toggle waves-effect waves-classic" @click="toggle(true)"></i>
         <div class="nav-content">
-            <router-link class="content-item waves-effect waves-classic" width="80" :to="{ path: '/mine-music' }"><i class="iconfont icon-music"></i></router-link>
-            <router-link class="content-item waves-effect waves-classic" width="80" :to="{ path: '/found-music' }"><i class="iconfont icon-wangyiyunyinlezizhi-copy"></i></router-link>
+            <router-link class="content-item waves-effect waves-classic" width="80" :to="{ path: '/mine_music' }"><i class="iconfont icon-music"></i></router-link>
+            <router-link class="content-item waves-effect waves-classic" width="80" :to="{ path: '/found_music' }"><i class="iconfont icon-wangyiyunyinlezizhi-copy"></i></router-link>
             <router-link class="content-item waves-effect waves-classic" width="80" :to="{ path: '/friend' }"><i class="iconfont icon-pengyou"></i></router-link>
         </div>
         <i class="iconfont icon-search nav-search waves-effect waves-classic"></i>

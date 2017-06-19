@@ -6,7 +6,7 @@ const App = resolve => require(['../App.vue'], resolve);
 const Login = resolve => require(['../view/login/index.vue'], resolve);
 const Home = resolve => require(['../components/home/index.vue'], resolve);
 const Page = resolve => require(['../components/secondary-pages/secondary-pages.vue'], resolve);
-const PageHeader  = resolve => require(['../components/secondary-pages/TopBar.vue'], resolve);
+const PageHeader = resolve => require(['../components/secondary-pages/TopBar.vue'], resolve);
 
 
 const MineMusic = resolve => require(['../view/mine-music/mine-music.vue'], resolve);
@@ -34,8 +34,7 @@ Vue.use(Router);
 export default new Router({
     linkActiveClass: 'router-link-active',
     mode: 'history',
-    routes: [
-        {
+    routes: [{
             path: '/login',
             component: Login,
         },
@@ -43,19 +42,18 @@ export default new Router({
         {
             path: '/',
             component: Home,
-            children: [
-                {
+            children: [{
                     path: '',
-                    redirect: '/found-music',
+                    redirect: '/found_music',
                 },
                 // 我的音乐
                 {
-                    path: '/mine-music',
+                    path: '/mine_music',
                     component: MineMusic
                 },
                 // 发现音乐
                 {
-                    path: '/found-music',
+                    path: '/found_music',
                     component: FoundMusic,
                     beforeEnter: (to, from, next) => {
                         // 刷新当前页面，防止重定向到首页
@@ -70,25 +68,24 @@ export default new Router({
                             next();
                         }
                     },
-                    children: [
-                        {
+                    children: [{
                             path: '',
-                            redirect: '/found-music/recommendation',
+                            redirect: '/found_music/recommendation',
                         },
                         {
-                            path: '/found-music/recommendation',
+                            path: '/found_music/recommendation',
                             component: FoundMusicRecommendation
                         },
                         {
-                            path: '/found-music/song_list',
+                            path: '/found_music/song_list',
                             component: FoundMusicSongList
                         },
                         {
-                            path: '/found-music/anchor_radio',
+                            path: '/found_music/anchor_radio',
                             component: FoundMusicAnchorRadio
                         },
                         {
-                            path: '/found-music/ranking',
+                            path: '/found_music/ranking',
                             component: FoundMusicRanking
                         },
                     ],
@@ -102,24 +99,21 @@ export default new Router({
         {
             path: '/page',
             component: Page,
-            children: [
-                {
-                    path: '/page/radio_category',
-                    meta: {
-                        title: '我的TV'
-                    },
-                    components: {
-                        default: RadioCategory,
-                        header: PageHeader,
-                    }
+            children: [{
+                path: '/page/radio_category',
+                meta: {
+                    title: '我的TV'
                 },
-            ],
+                components: {
+                    default: RadioCategory,
+                    header: PageHeader,
+                }
+            }, ],
         },
         {
             path: '/demo',
             component: Demo,
-            children: [
-                {
+            children: [{
                     path: '/demo/',
                     component: DemoIntroduce
                 },
